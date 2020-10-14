@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "466821831955",
+    "firebase_url": "https://signlog-f4358.firebaseio.com",
+    "project_id": "signlog-f4358",
+    "storage_bucket": "signlog-f4358.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:466821831955:android:a99a71acd8bf82306b0ee6",
+        "android_client_info": {
+          "package_name": "com.example.signlog"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "466821831955-fghq78do1gbj6b7vg5utikeu6p48r1g5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.signlog",
+            "certificate_hash": "68d3efb61badd2a95b9404801d3ea5dcc3ccd497"
+          }
+        },
+        {
+          "client_id": "466821831955-4dhdnu8dabls62hk108mo46j878safmq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDe34rIh4ejirL5113bZP51qb7cPAMtoQw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "466821831955-4dhdnu8dabls62hk108mo46j878safmq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
