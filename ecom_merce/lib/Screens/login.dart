@@ -1,4 +1,5 @@
-import 'package:flutter/cupertino.dart';
+import 'package:ecom_merce/Widgets/account_state.dart';
+import 'package:ecom_merce/Widgets/mbutton.dart';
 import 'package:flutter/material.dart';
 import 'sign.dart';
 
@@ -6,23 +7,25 @@ class Login extends StatefulWidget {
   @override
   _LoginState createState() => _LoginState();
 }
-final GlobalKey<FormState> _formkey=GlobalKey<FormState>();
 
-String p=r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$";
-RegExp regExp= new RegExp(p);
+final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
-bool obsText=true;
+String p =
+    r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$";
+RegExp regExp = new RegExp(p);
+
+bool obsText = true;
 
 class _LoginState extends State<Login> {
-  void Validation(){
-    final FormState _form=_formkey.currentState;
-    if(_form.validate()){
+  void Validation() {
+    final FormState _form = _formkey.currentState;
+    if (_form.validate()) {
       print("Yes");
-    }
-    else{
+    } else {
       print("No");
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,37 +44,29 @@ class _LoginState extends State<Login> {
                   children: [
                     Text(
                       "Login",
-                      style: TextStyle(
-                        fontSize: 50,
-                        fontWeight: FontWeight.bold
-                      ),
+                      style:
+                          TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
                     ),
                     TextFormField(
-                      validator: (value){
-                        if(value==""){
+                      validator: (value) {
+                        if (value == "") {
                           return "Please fill Email";
-                        }
-                        else if(!regExp.hasMatch(value)){
+                        } else if (!regExp.hasMatch(value)) {
                           return "Email is Invalid";
                         }
                         return "";
                       },
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: "Email",
-                        hintStyle: TextStyle(
-                          color: Colors.black
-
-                        )
-                      ),
+                          border: OutlineInputBorder(),
+                          hintText: "Email",
+                          hintStyle: TextStyle(color: Colors.black)),
                     ),
                     TextFormField(
                       obscureText: obsText,
-                      validator: (value){
-                        if(value==""){
+                      validator: (value) {
+                        if (value == "") {
                           return "Please enter password";
-                        }
-                        else if(value.length < 8){
+                        } else if (value.length < 8) {
                           return "Please enter at least 8 characters";
                         }
                         return "";
@@ -80,57 +75,34 @@ class _LoginState extends State<Login> {
                           border: OutlineInputBorder(),
                           hintText: "Password",
                           suffixIcon: GestureDetector(
-                            onTap: (){
+                            onTap: () {
                               setState(() {
-                                obsText=!obsText;
+                                obsText = !obsText;
                               });
                             },
-                            child: Icon(obsText==true? Icons.visibility:Icons.visibility_off,color: Colors.black,),
-                          ),
-                          hintStyle: TextStyle(
-                              color: Colors.black
-                          )
-                      ),
-                    ),
-                    Container(
-                      height: 45,
-                      width: double.infinity,
-                      child: RaisedButton(
-                          child: Text(
-                            "Login",
-                          ),
-                          color: Colors.lightGreenAccent,
-                          onPressed: (){
-                            Validation();
-                          }
-                          ),
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          "I don't have Account"
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        GestureDetector(
-                          onTap: (){
-                            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx)=>SignUp(),
-                              ),
-                            );
-                          },
-
-                          child: Text(
-                            "SignUp",
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.orange,
-                                fontWeight: FontWeight.bold
+                            child: Icon(
+                              obsText == true
+                                  ? Icons.visibility
+                                  : Icons.visibility_off,
+                              color: Colors.black,
                             ),
                           ),
-                        )
-                      ],
-                    )
+                          hintStyle: TextStyle(color: Colors.black)),
+                    ),
+                    MyButton(
+                      onPressed: () {
+                        Validation();
+                      },
+                      name: "Login",
+                    ),
+                    Account(
+                      accname: "SignUp",
+                      txt: "I don't have any Account!",
+                      onTap: () {
+                        Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(builder: (ctx) => SignUp()));
+                      },
+                    ),
                   ],
                 ),
               )
