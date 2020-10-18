@@ -10,6 +10,8 @@ final GlobalKey<FormState> _formkey=GlobalKey<FormState>();
 String p=r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$";
 RegExp regExp= new RegExp(p);
 
+bool obsText=true;
+
 class _SignUpState extends State<SignUp> {
   void Validation(){
     final FormState _form=_formkey.currentState;
@@ -116,6 +118,7 @@ class _SignUpState extends State<SignUp> {
                         ),
                       ),
                       TextFormField(
+                        obscureText: obsText,
                         validator: (value){
                           if(value==""){
                             return "Please enter password";
@@ -129,9 +132,13 @@ class _SignUpState extends State<SignUp> {
                             hintText: "Password",
                             suffixIcon: GestureDetector(
                               onTap: (){
+                                setState(() {
+                                  obsText=!obsText;
+                                });
                                 FocusScope.of(context).unfocus();
                               },
-                              child: Icon(Icons.visibility, color: Colors.black,),
+                              child: Icon(
+                                obsText==true? Icons.visibility: Icons.visibility_off, color: Colors.black,),
                             ),
                             hintStyle: TextStyle(
                                 fontSize: 10,
