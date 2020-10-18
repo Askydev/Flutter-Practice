@@ -1,5 +1,7 @@
+import 'package:ecom_merce/Widgets/Formfields.dart';
 import 'package:ecom_merce/Widgets/account_state.dart';
 import 'package:ecom_merce/Widgets/mbutton.dart';
+import 'package:ecom_merce/Widgets/passwordFields.dart';
 import 'package:flutter/material.dart';
 import 'sign.dart';
 
@@ -13,8 +15,6 @@ final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 String p =
     r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$";
 RegExp regExp = new RegExp(p);
-
-bool obsText = true;
 
 class _LoginState extends State<Login> {
   void Validation() {
@@ -47,7 +47,8 @@ class _LoginState extends State<Login> {
                       style:
                           TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
                     ),
-                    TextFormField(
+                    FormFtxt(
+                      htxt: "Email",
                       validator: (value) {
                         if (value == "") {
                           return "Please fill Email";
@@ -56,13 +57,10 @@ class _LoginState extends State<Login> {
                         }
                         return "";
                       },
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: "Email",
-                          hintStyle: TextStyle(color: Colors.black)),
                     ),
-                    TextFormField(
-                      obscureText: obsText,
+                    PassW(
+                      htxt: "Password",
+                      obsText: true,
                       validator: (value) {
                         if (value == "") {
                           return "Please enter password";
@@ -71,23 +69,12 @@ class _LoginState extends State<Login> {
                         }
                         return "";
                       },
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: "Password",
-                          suffixIcon: GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                obsText = !obsText;
-                              });
-                            },
-                            child: Icon(
-                              obsText == true
-                                  ? Icons.visibility
-                                  : Icons.visibility_off,
-                              color: Colors.black,
-                            ),
-                          ),
-                          hintStyle: TextStyle(color: Colors.black)),
+                      onTap: () {
+                        FocusScope.of(context).unfocus();
+                        setState(() {
+                          obsText = !obsText;
+                        });
+                      },
                     ),
                     MyButton(
                       onPressed: () {

@@ -1,6 +1,8 @@
 import 'package:ecom_merce/Screens/login.dart';
+import 'package:ecom_merce/Widgets/Formfields.dart';
 import 'package:ecom_merce/Widgets/account_state.dart';
 import 'package:ecom_merce/Widgets/mbutton.dart';
+import 'package:ecom_merce/Widgets/passwordFields.dart';
 import 'package:flutter/material.dart';
 
 class SignUp extends StatefulWidget {
@@ -62,7 +64,8 @@ class _SignUpState extends State<SignUp> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      TextFormField(
+                      FormFtxt(
+                        htxt: "User Name",
                         validator: (value) {
                           if (value == "") {
                             return "Username field is required";
@@ -73,13 +76,9 @@ class _SignUpState extends State<SignUp> {
                           }
                           return "";
                         },
-                        decoration: InputDecoration(
-                            hintText: "User Name",
-                            hintStyle:
-                                TextStyle(fontSize: 10, color: Colors.black),
-                            border: OutlineInputBorder()),
                       ),
-                      TextFormField(
+                      FormFtxt(
+                        htxt: "Email",
                         validator: (value) {
                           if (value == "") {
                             return "Please fill Email";
@@ -88,13 +87,9 @@ class _SignUpState extends State<SignUp> {
                           }
                           return "";
                         },
-                        decoration: InputDecoration(
-                            hintText: "Email",
-                            hintStyle:
-                                TextStyle(fontSize: 10, color: Colors.black),
-                            border: OutlineInputBorder()),
                       ),
-                      TextFormField(
+                      FormFtxt(
+                        htxt: "Phone Number",
                         validator: (value) {
                           if (value == "") {
                             return "Please enter Phone Number";
@@ -103,15 +98,10 @@ class _SignUpState extends State<SignUp> {
                           }
                           return "";
                         },
-                        decoration: InputDecoration(
-                            hintText: "Phone Number",
-                            // icon: Icon(Icons.phone),
-                            hintStyle:
-                                TextStyle(fontSize: 10, color: Colors.black),
-                            border: OutlineInputBorder()),
                       ),
-                      TextFormField(
-                        obscureText: obsText,
+
+                      PassW(
+                        htxt: "Password",
                         validator: (value) {
                           if (value == "") {
                             return "Please enter password";
@@ -120,26 +110,15 @@ class _SignUpState extends State<SignUp> {
                           }
                           return "";
                         },
-                        decoration: InputDecoration(
-                            hintText: "Password",
-                            suffixIcon: GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  obsText = !obsText;
-                                });
-                                FocusScope.of(context).unfocus();
-                              },
-                              child: Icon(
-                                obsText == true
-                                    ? Icons.visibility
-                                    : Icons.visibility_off,
-                                color: Colors.black,
-                              ),
-                            ),
-                            hintStyle:
-                                TextStyle(fontSize: 10, color: Colors.black),
-                            border: OutlineInputBorder()),
+                        obsText: true,
+                        onTap: () {
+                          FocusScope.of(context).unfocus();
+                          setState(() {
+                            obsText = !obsText;
+                          });
+                        },
                       ),
+
                       // SizedBox(
                       //   height: 10,
                       // ),
