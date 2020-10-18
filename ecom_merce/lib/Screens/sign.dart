@@ -1,3 +1,4 @@
+import 'package:ecom_merce/Screens/login.dart';
 import 'package:flutter/material.dart';
 
 class SignUp extends StatefulWidget {
@@ -169,6 +170,11 @@ class _SignUpState extends State<SignUp> {
                             width: 10,
                           ),
                           GestureDetector(
+                            onTap: (){
+                              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx)=>Login(),
+                                ),
+                              );
+                            },
                             child: Text(
                               "Login",
                               style: TextStyle(
