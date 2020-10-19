@@ -13,6 +13,7 @@ class PassW extends StatelessWidget {
     return TextFormField(
       obscureText: obsText,
       validator: validator,
+      onChanged: onChanged,
       decoration: InputDecoration(
           border: OutlineInputBorder(),
           hintText: htxt,
