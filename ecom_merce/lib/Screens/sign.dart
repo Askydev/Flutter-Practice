@@ -4,6 +4,7 @@ import 'package:ecom_merce/Widgets/account_state.dart';
 import 'package:ecom_merce/Widgets/mbutton.dart';
 import 'package:ecom_merce/Widgets/passwordFields.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -27,8 +28,11 @@ class _SignUpState extends State<SignUp> {
     final FormState _form = _formkey.currentState;
     if (!_form.validate()) {
       try{
+        // ignore: deprecated_member_use
+        // FirebaseUser result=(await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password)).user;
         UserCredential result = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password);
         print(result.user.uid);
+
       } on PlatformException catch(e){
         print(e.message.toString());
       }
