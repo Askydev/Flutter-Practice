@@ -3,7 +3,9 @@ import 'package:ecom_merce/Widgets/Formfields.dart';
 import 'package:ecom_merce/Widgets/account_state.dart';
 import 'package:ecom_merce/Widgets/mbutton.dart';
 import 'package:ecom_merce/Widgets/passwordFields.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -17,12 +19,19 @@ String p =
 RegExp regExp = new RegExp(p);
 
 bool obsText = true;
+String email;
+String password;
 
 class _SignUpState extends State<SignUp> {
-  void Validation() {
+  void Validation() async{
     final FormState _form = _formkey.currentState;
-    if (_form.validate()) {
-      print("Yes");
+    if (!_form.validate()) {
+      try{
+        UserCredential result = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password);
+        print(result.user.uid);
+      } on PlatformException catch(e){
+        print(e.message.toString());
+      }
     } else {
       print("No");
     }
@@ -79,6 +88,12 @@ class _SignUpState extends State<SignUp> {
                       ),
                       FormFtxt(
                         htxt: "Email",
+                        onChanged: (value){
+                          setState(() {
+                            email=value;
+                            print(email);
+                          });
+                        },
                         validator: (value) {
                           if (value == "") {
                             return "Please fill Email";
@@ -99,9 +114,14 @@ class _SignUpState extends State<SignUp> {
                           return "";
                         },
                       ),
-
                       PassW(
                         htxt: "Password",
+                        onChanged: (value){
+                          setState(() {
+                            password=value;
+                            print(password);
+                          });
+                        },
                         validator: (value) {
                           if (value == "") {
                             return "Please enter password";
@@ -110,7 +130,7 @@ class _SignUpState extends State<SignUp> {
                           }
                           return "";
                         },
-                        obsText: true,
+                        obsText: obsText,
                         onTap: () {
                           FocusScope.of(context).unfocus();
                           setState(() {
@@ -118,10 +138,6 @@ class _SignUpState extends State<SignUp> {
                           });
                         },
                       ),
-
-                      // SizedBox(
-                      //   height: 10,
-                      // ),
                       MyButton(
                         name: "SignUp",
                         onPressed: () {

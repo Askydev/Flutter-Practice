@@ -15,6 +15,7 @@ final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 String p =
     r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$";
 RegExp regExp = new RegExp(p);
+bool obsText=true;
 
 class _LoginState extends State<Login> {
   void Validation() {
@@ -24,6 +25,60 @@ class _LoginState extends State<Login> {
     } else {
       print("No");
     }
+  }
+
+  Widget _buildTextFormFields() {
+    return Container(
+      height: 240,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          FormFtxt(
+            htxt: "Email",
+            validator: (value) {
+              if (value == "") {
+                return "Please fill Email";
+              } else if (!regExp.hasMatch(value)) {
+                return "Email is Invalid";
+              }
+              return "";
+            },
+          ),
+          PassW(
+            htxt: "Password",
+            obsText: obsText,
+            validator: (value) {
+              if (value == "") {
+                return "Please enter password";
+              } else if (value.length < 8) {
+                return "Please enter at least 8 characters";
+              }
+              return "";
+            },
+            onTap: () {
+              FocusScope.of(context).unfocus();
+              setState(() {
+                obsText = !obsText;
+              });
+            },
+          ),
+          MyButton(
+            onPressed: () {
+              Validation();
+            },
+            name: "Login",
+          ),
+          Account(
+            accname: "SignUp",
+            txt: "I don't have any Account!",
+            onTap: () {
+              Navigator.of(context)
+                  .pushReplacement(MaterialPageRoute(builder: (ctx) => SignUp()));
+            },
+          ),
+        ],
+      ),
+    );
   }
 
   @override
@@ -40,56 +95,13 @@ class _LoginState extends State<Login> {
                 height: 300,
                 width: double.infinity,
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Text(
                       "Login",
                       style:
                           TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
                     ),
-                    FormFtxt(
-                      htxt: "Email",
-                      validator: (value) {
-                        if (value == "") {
-                          return "Please fill Email";
-                        } else if (!regExp.hasMatch(value)) {
-                          return "Email is Invalid";
-                        }
-                        return "";
-                      },
-                    ),
-                    PassW(
-                      htxt: "Password",
-                      obsText: true,
-                      validator: (value) {
-                        if (value == "") {
-                          return "Please enter password";
-                        } else if (value.length < 8) {
-                          return "Please enter at least 8 characters";
-                        }
-                        return "";
-                      },
-                      onTap: () {
-                        FocusScope.of(context).unfocus();
-                        setState(() {
-                          obsText = !obsText;
-                        });
-                      },
-                    ),
-                    MyButton(
-                      onPressed: () {
-                        Validation();
-                      },
-                      name: "Login",
-                    ),
-                    Account(
-                      accname: "SignUp",
-                      txt: "I don't have any Account!",
-                      onTap: () {
-                        Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(builder: (ctx) => SignUp()));
-                      },
-                    ),
+                    _buildTextFormFields(),
                   ],
                 ),
               )

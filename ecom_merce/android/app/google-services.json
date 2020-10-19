@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "787345884625",
+    "firebase_url": "https://ecomm-1b3c0.firebaseio.com",
+    "project_id": "ecomm-1b3c0",
+    "storage_bucket": "ecomm-1b3c0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:787345884625:android:62f8513aeaec923e878cf0",
+        "android_client_info": {
+          "package_name": "com.dev.ecom_merce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "787345884625-5holpqqshv7pi4d32ntm59d8ovpi6a7j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHnUcPCYjlUawSWljuNqtFmxZVPcu9EX0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "787345884625-5holpqqshv7pi4d32ntm59d8ovpi6a7j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

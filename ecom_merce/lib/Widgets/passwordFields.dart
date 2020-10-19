@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
 class PassW extends StatelessWidget {
-  final bool obsText;
+  bool obsText;
   final Function validator;
   final String htxt;
   final Function onTap;
+  final Function onChanged;
 
-  PassW({this.obsText, this.validator, this.htxt, this.onTap});
+  PassW({this.onChanged,this.validator, this.htxt, this.onTap,this.obsText});
   @override
   Widget build(BuildContext context) {
     return TextFormField(
