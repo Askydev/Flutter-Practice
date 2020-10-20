@@ -2,7 +2,10 @@ import 'package:ecom_merce/Widgets/Formfields.dart';
 import 'package:ecom_merce/Widgets/account_state.dart';
 import 'package:ecom_merce/Widgets/mbutton.dart';
 import 'package:ecom_merce/Widgets/passwordFields.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'sign.dart';
 
 class Login extends StatefulWidget {
@@ -11,17 +14,31 @@ class Login extends StatefulWidget {
 }
 
 final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
+final GlobalKey<ScaffoldState> _scaffoldkey = GlobalKey<ScaffoldState>();
+
 
 String p =
     r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$";
 RegExp regExp = new RegExp(p);
 bool obsText=true;
+String email;
+String password;
 
 class _LoginState extends State<Login> {
-  void Validation() {
+  void Validation() async{
     final FormState _form = _formkey.currentState;
-    if (_form.validate()) {
-      print("Yes");
+    if (!_form.validate()) {
+      try{
+        UserCredential result = await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
+        print(result.user.uid);
+      }on PlatformException catch(e){
+        print(e.message.toString());
+        _scaffoldkey.currentState.showSnackBar(
+          new SnackBar(
+            content: new Text(e.message),
+          ),
+        );
+      }
     } else {
       print("No");
     }
@@ -35,6 +52,12 @@ class _LoginState extends State<Login> {
         children: [
           FormFtxt(
             htxt: "Email",
+            onChanged: (value){
+              setState(() {
+                email=value;
+                print(email);
+              });
+            },
             validator: (value) {
               if (value == "") {
                 return "Please fill Email";
@@ -46,6 +69,12 @@ class _LoginState extends State<Login> {
           ),
           PassW(
             htxt: "Password",
+            onChanged: (value){
+              setState(() {
+                password=value;
+                print(password);
+              });
+            },
             obsText: obsText,
             validator: (value) {
               if (value == "") {
@@ -84,6 +113,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldkey,
       body: Form(
         key: _formkey,
         child: Container(

@@ -14,6 +14,8 @@ class SignUp extends StatefulWidget {
 }
 
 final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
+final GlobalKey<ScaffoldState> _scaffoldkey = GlobalKey<ScaffoldState>();
+
 
 String p =
     r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$";
@@ -35,15 +37,22 @@ class _SignUpState extends State<SignUp> {
 
       } on PlatformException catch(e){
         print(e.message.toString());
+        _scaffoldkey.currentState.showSnackBar(
+          new SnackBar(
+            content: new Text(e.message),
+          ),
+        );
       }
     } else {
       print("No");
     }
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldkey,
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Form(
