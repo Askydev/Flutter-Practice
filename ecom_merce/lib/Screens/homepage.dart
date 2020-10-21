@@ -8,7 +8,7 @@ class Homepage extends StatelessWidget {
       key: _key,
       drawer: Drawer(),
       appBar: AppBar(
-        title: Text(""),
+        title: Text("HomePage"),
         centerTitle: true,
         elevation: 0.0,
         backgroundColor: Colors.black,
