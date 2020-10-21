@@ -54,6 +54,35 @@ class Homepage extends StatelessWidget {
                 ],
               ),
             ),
+            Row(
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Card(
+                      child: Container(
+                        height: 200,
+                        width: 180,
+                        color: Colors.transparent,
+                        child: Column(
+                          children: [
+                            Container(
+                              height: 160,
+                              width: 150,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(image: AssetImage("images/mid.png"),),
+                              ),
+                            ),
+                            Text("\$ 30.0", style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: Colors.black54),),
+                            Text("Black Elegance", style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold, color: Colors.black),)
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            )
           ],
         ),
       ),
