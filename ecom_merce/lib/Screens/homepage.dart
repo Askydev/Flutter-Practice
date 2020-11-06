@@ -1,6 +1,28 @@
 import 'package:flutter/material.dart';
 
 class Homepage extends StatelessWidget {
+  Widget _buildFeaturedProducts({String name, double price, String image}){
+    return Card(
+      child: Container(
+        height: 200,
+        width: 176,
+        color: Colors.transparent,
+        child: Column(
+          children: [
+            Container(
+              height: 160,
+              width: 150,
+              decoration: BoxDecoration(
+                image: DecorationImage(image: AssetImage("images/$image"),),
+              ),
+            ),
+            Text("\$ $price", style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: Colors.black54),),
+            Text(name, style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold, color: Colors.black),)
+          ],
+        ),
+      ),
+    );
+  }
   final GlobalKey<ScaffoldState> _key=GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -59,26 +81,15 @@ class Homepage extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Card(
-                      child: Container(
-                        height: 200,
-                        width: 180,
-                        color: Colors.transparent,
-                        child: Column(
-                          children: [
-                            Container(
-                              height: 160,
-                              width: 150,
-                              decoration: BoxDecoration(
-                                image: DecorationImage(image: AssetImage("images/mid.png"),),
-                              ),
-                            ),
-                            Text("\$ 30.0", style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: Colors.black54),),
-                            Text("Black Elegance", style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold, color: Colors.black),)
-                          ],
-                        ),
-                      ),
-                    ),
+                    Row(
+                      children: [
+                        _buildFeaturedProducts(image: "mid.png", price: 30.0, name: "Black Elegance"),
+                        // SizedBox(
+                        //   width: 25,
+                        // ),
+                        _buildFeaturedProducts(image: "galaxy.png", price: 120.0, name: "Galaxy Gear-2")
+                      ],
+                    )
                   ],
                 ),
               ],
