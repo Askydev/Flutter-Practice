@@ -56,23 +56,39 @@ class Homepage extends StatelessWidget {
               width: double.infinity,
               // color: Colors.blue,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Featured Products",
-                        style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-                      ),
-
-                      Text(
-                        "See All",
-                        style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-                      ),
-                    ],
+                  TextFormField(
+                    decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.search),
+                      hintText: "Search",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(25)
+                      )
+                    ),
                   ),
+                  Container(
+                    height:50,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Featured Products",
+                              style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                            ),
 
+                            Text(
+                              "See All",
+                              style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -84,16 +100,18 @@ class Homepage extends StatelessWidget {
                     Row(
                       children: [
                         _buildFeaturedProducts(image: "mid.png", price: 30.0, name: "Black Elegance"),
-                        // SizedBox(
-                        //   width: 25,
-                        // ),
                         _buildFeaturedProducts(image: "galaxy.png", price: 120.0, name: "Galaxy Gear-2")
                       ],
                     )
                   ],
                 ),
               ],
-            )
+            ),
+            Row(
+              children: [
+                Text("Categories"),
+              ],
+            ),
           ],
         ),
       ),
