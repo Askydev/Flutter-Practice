@@ -23,6 +23,18 @@ class Homepage extends StatelessWidget {
       ),
     );
   }
+
+  Widget _buildCategoryProduct({String image, int color}){
+    return CircleAvatar(
+      maxRadius: 37,
+      backgroundColor: Color(color),
+      child: Image(
+        // color: Colors.white,
+        image: AssetImage("images/$image"),
+      ),
+    );
+  }
+
   final GlobalKey<ScaffoldState> _key=GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -107,11 +119,28 @@ class Homepage extends StatelessWidget {
                 ),
               ],
             ),
-            Row(
-              children: [
-                Text("Categories"),
-              ],
+            Container(
+              height: 70,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Categories",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
+                  Text("See All",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
+                ],
+              ),
             ),
+            Container(
+              height: 60,
+              child: Row(
+                children: [
+                  _buildCategoryProduct(image:"dress.png", color: 0xff3ddd),
+                  _buildCategoryProduct(image:"shirt.png", color: 0xff3cdd),
+                  _buildCategoryProduct(image:"shoe.png", color: 0xff3ccd),
+                  _buildCategoryProduct(image:"pants.png", color: 0xff3cdd),
+                  _buildCategoryProduct(image:"galaxy.png", color: 0xff3cdd),
+                ],
+              ),
+            )
           ],
         ),
       ),
