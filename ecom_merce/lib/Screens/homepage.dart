@@ -175,8 +175,8 @@ class Homepage extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            _buildFeaturedProducts(image: "mid.png", price: 30.0, name: "Black Elegance"),
-                            _buildFeaturedProducts(image: "galaxy.png", price: 120.0, name: "Galaxy Gear-2")
+                            _buildFeaturedProducts(image: "gpixel-4a.png", price: 400.0, name: "Google Pixel 4A"),
+                            _buildFeaturedProducts(image: "airdopes.png", price: 60.0, name: "Boat AirDopes 511")
                           ],
                         )
                       ],
