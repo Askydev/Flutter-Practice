@@ -28,9 +28,12 @@ class Homepage extends StatelessWidget {
     return CircleAvatar(
       maxRadius: 37,
       backgroundColor: Color(color),
-      child: Image(
-        // color: Colors.white,
-        image: AssetImage("images/$image"),
+      child: Container(
+        height: 55,
+        child: Image(
+          // color: Colors.white,
+          image: AssetImage("images/$image"),
+        ),
       ),
     );
   }
@@ -61,86 +64,127 @@ class Homepage extends StatelessWidget {
         height: double.infinity,
         width: double.infinity,
         margin: EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
+        child: ListView(
           children: [
-            Container(
-              height: 120,
-              width: double.infinity,
-              // color: Colors.blue,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  TextFormField(
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.search),
-                      hintText: "Search",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(25)
-                      )
-                    ),
-                  ),
-                  Container(
-                    height:50,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Column(
+              children: [
+                Container(
+                  height: 120,
+                  width: double.infinity,
+                  // color: Colors.blue,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      TextFormField(
+                        decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.search),
+                          hintText: "Search",
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(25)
+                          )
+                        ),
+                      ),
+                      Container(
+                        height:50,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            Text(
-                              "Featured Products",
-                              style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "Featured Products",
+                                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                                ),
 
-                            Text(
-                              "See All",
-                              style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                                Text(
+                                  "See All",
+                                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                                ),
+                              ],
                             ),
                           ],
                         ),
+                      ),
+                    ],
+                  ),
+                ),
+                Row(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            _buildFeaturedProducts(image: "mid.png", price: 30.0, name: "Black Elegance"),
+                            _buildFeaturedProducts(image: "galaxy.png", price: 120.0, name: "Galaxy Gear-2")
+                          ],
+                        )
                       ],
                     ),
+                  ],
+                ),
+                Container(
+                  height: 70,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("Categories",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
+                      Text("See All",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
+                    ],
                   ),
-                ],
-              ),
-            ),
-            Row(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                ),
+                Container(
+                  height: 60,
+                  child: Row(
+                    children: [
+                      _buildCategoryProduct(image:"dress.png", color: 0xff3ddd),
+                      _buildCategoryProduct(image:"shirt.png", color: 0xff3cdd),
+                      _buildCategoryProduct(image:"shoe.png", color: 0xff3ccd),
+                      _buildCategoryProduct(image:"pants.png", color: 0xff3cdd),
+                      _buildCategoryProduct(image:"galaxy.png", color: 0xff3cdd),
+                    ],
+                  ),
+                ),
+                Container(
+                  height:50,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "New Arrivals",
+                            style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                          ),
+
+                          Text(
+                            "See All",
+                            style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Row(
                   children: [
-                    Row(
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        _buildFeaturedProducts(image: "mid.png", price: 30.0, name: "Black Elegance"),
-                        _buildFeaturedProducts(image: "galaxy.png", price: 120.0, name: "Galaxy Gear-2")
+                        Row(
+                          children: [
+                            _buildFeaturedProducts(image: "mid.png", price: 30.0, name: "Black Elegance"),
+                            _buildFeaturedProducts(image: "galaxy.png", price: 120.0, name: "Galaxy Gear-2")
+                          ],
+                        )
                       ],
-                    )
+                    ),
                   ],
                 ),
               ],
             ),
-            Container(
-              height: 70,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text("Categories",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
-                  Text("See All",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
-                ],
-              ),
-            ),
-            Container(
-              height: 60,
-              child: Row(
-                children: [
-                  _buildCategoryProduct(image:"dress.png", color: 0xff3ddd),
-                  _buildCategoryProduct(image:"shirt.png", color: 0xff3cdd),
-                  _buildCategoryProduct(image:"shoe.png", color: 0xff3ccd),
-                  _buildCategoryProduct(image:"pants.png", color: 0xff3cdd),
-                  _buildCategoryProduct(image:"galaxy.png", color: 0xff3cdd),
-                ],
-              ),
-            )
           ],
         ),
       ),
