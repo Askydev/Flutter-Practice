@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:ecom_merce/Screens/sign.dart';
 import 'package:ecom_merce/Screens/login.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:ecom_merce/Screens/listproduct.dart';
 
 
 void main(){
@@ -21,20 +22,20 @@ class Ecom extends StatelessWidget {
           if (snapshot.hasError) {
             return MaterialApp(
               debugShowCheckedModeBanner: false,
-              home: Homepage(),
+              home: ListProduct(),
             );
           }
       if (snapshot.connectionState == ConnectionState.done) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: Homepage(),
+          home: ListProduct(),
         );
       // ignore: missing_return, missing_return
       }
       // Otherwise, show something whilst waiting for initialization to complete
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            home: Homepage(),
+            home: ListProduct(),
             // ignore: missing_return, missing_return
           );
     });
