@@ -50,43 +50,49 @@ class ListProduct extends StatelessWidget {
       ),
       body: Container(
         margin: EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
+        child: ListView(
           children: [
-            Container(
-              height:50,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Column(
+              children: [
+                Container(
+                  height:50,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Text(
-                        "Featured Products",
-                        style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Featured Products",
+                            style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                          ),
 
-                      Text(
-                        "See All",
-                        style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                          Text(
+                            "See All",
+                            style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                ],
-              ),
-            ),
-            Row(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        _buildFeaturedProducts(image: "mid.png", price: 30.0, name: "Black Elegance"),
-                        _buildFeaturedProducts(image: "galaxy.png", price: 120.0, name: "Galaxy Gear-2")
-                      ],
-                    )
-                  ],
                 ),
+                Container(
+                  height: 700,
+                  child: GridView.count(
+                    mainAxisSpacing: 10,
+                    childAspectRatio: 0.8,
+                    crossAxisCount: 2,
+                    children: [
+                    _buildFeaturedProducts(image: "mid.png", price: 30.0, name: "Black Elegance"),
+                    _buildFeaturedProducts(image: "galaxy.png", price: 120.0, name: "Galaxy Gear-2"),
+                    _buildFeaturedProducts(image: "mid.png", price: 30.0, name: "Black Elegance"),
+                    _buildFeaturedProducts(image: "galaxy.png", price: 120.0, name: "Galaxy Gear-2"),
+                    _buildFeaturedProducts(image: "mid.png", price: 30.0, name: "Black Elegance"),
+                    _buildFeaturedProducts(image: "galaxy.png", price: 120.0, name: "Galaxy Gear-2"),
+                      _buildFeaturedProducts(image: "mid.png", price: 30.0, name: "Black Elegance"),
+                      _buildFeaturedProducts(image: "galaxy.png", price: 120.0, name: "Galaxy Gear-2")
+                  ],),
+                )
               ],
             ),
           ],
