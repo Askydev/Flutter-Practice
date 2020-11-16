@@ -56,8 +56,13 @@ class Homepage extends StatelessWidget {
           },
         ),
         actions: [
-          IconButton(icon: Icon(Icons.notifications_none), onPressed: (){}),
-          IconButton(icon: Icon(Icons.send), onPressed: (){}),
+
+          IconButton(
+              icon: Icon(Icons.search),
+              onPressed: (){}),
+          IconButton(
+              icon: Icon(Icons.notifications_none),
+              onPressed: (){}),
         ],
       ),
       body: Container(
