@@ -74,51 +74,48 @@ class Homepage extends StatelessWidget {
             Column(
               children: [
                 Container(
-                  height: 120,
                   width: double.infinity,
                   // color: Colors.blue,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      TextFormField(
-                        decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.search),
-                          hintText: "Search",
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(25)
-                          )
+                      Container(
+                        height: 70,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("Categories",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
+                            Text("See All",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
+                          ],
                         ),
                       ),
                       Container(
-                        height:50,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
+                        height: 60,
+                        child: Row(
                           children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "Featured Products",
-                                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-                                ),
-
-                                Text(
-                                  "See All",
-                                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-                                ),
-                              ],
-                            ),
+                            _buildCategoryProduct(image:"dress.png", color: 0xff3ddd),
+                            _buildCategoryProduct(image:"shirt.png", color: 0xff3cdd),
+                            _buildCategoryProduct(image:"shoe.png", color: 0xff3ccd),
+                            _buildCategoryProduct(image:"pants.png", color: 0xff3cdd),
+                            _buildCategoryProduct(image:"galaxy.png", color: 0xff3cdd),
                           ],
                         ),
                       ),
                     ],
                   ),
                 ),
-                Row(
+                Column(
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("Featured Products", style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),),
+                            Text("See All", style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),),
+                          ],
+                        ),
                         Row(
                           children: [
                             _buildFeaturedProducts(image: "mid.png", price: 30.0, name: "Black Elegance"),
@@ -129,28 +126,7 @@ class Homepage extends StatelessWidget {
                     ),
                   ],
                 ),
-                Container(
-                  height: 70,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text("Categories",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
-                      Text("See All",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
-                    ],
-                  ),
-                ),
-                Container(
-                  height: 60,
-                  child: Row(
-                    children: [
-                      _buildCategoryProduct(image:"dress.png", color: 0xff3ddd),
-                      _buildCategoryProduct(image:"shirt.png", color: 0xff3cdd),
-                      _buildCategoryProduct(image:"shoe.png", color: 0xff3ccd),
-                      _buildCategoryProduct(image:"pants.png", color: 0xff3cdd),
-                      _buildCategoryProduct(image:"galaxy.png", color: 0xff3cdd),
-                    ],
-                  ),
-                ),
+
                 Container(
                   height:50,
                   child: Column(
@@ -159,14 +135,8 @@ class Homepage extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            "New Arrivals",
-                            style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-                          ),
-
-                          Text(
-                            "See All",
-                            style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                          Text("New Arrivals", style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),),
+                          Text("See All", style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
                           ),
                         ],
                       ),
