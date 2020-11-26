@@ -55,20 +55,20 @@ class ListProduct extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  height: 700,
+                  height: 650,
                   child: GridView.count(
                     mainAxisSpacing: 10,
                     childAspectRatio: 0.8,
                     crossAxisCount: 2,
                     children: [
-                    SingleProduct(image: "mid.png", price: 30.0, name: "Black Elegance"),
+                    SingleProduct(image: "mid.png", price: 12.0, name: "Black Elegance"),
                     SingleProduct(image: "galaxy.png", price: 120.0, name: "Galaxy Gear-2"),
-                    SingleProduct(image: "mid.png", price: 30.0, name: "Black Elegance"),
-                    SingleProduct(image: "galaxy.png", price: 120.0, name: "Galaxy Gear-2"),
-                    SingleProduct(image: "mid.png", price: 30.0, name: "Black Elegance"),
-                    SingleProduct(image: "galaxy.png", price: 120.0, name: "Galaxy Gear-2"),
-                      SingleProduct(image: "mid.png", price: 30.0, name: "Black Elegance"),
-                      SingleProduct(image: "galaxy.png", price: 120.0, name: "Galaxy Gear-2")
+                    SingleProduct(image: "mobile_cover.gif", price: 9.0, name: "Marble Stone(iphone-6/6s)"),
+                    SingleProduct(image: "sandisk_ssd.png", price: 25.0, name: "Samsung EVO +"),
+                    SingleProduct(image: "headphone.png", price: 30.0, name: "Rockerzz 710"),
+                    SingleProduct(image: "pendrive.png", price: 7.0, name: "HP 32GB"),
+                      SingleProduct(image: "iphoneX.png", price: 975.0, name: "Iphone X 128GB"),
+                      SingleProduct(image: "teddy.png", price: 11.0, name: "SomeOne Tedddy 6 ft'")
                   ],),
                 )
               ],
