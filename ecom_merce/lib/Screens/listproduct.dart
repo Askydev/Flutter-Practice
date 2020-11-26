@@ -1,28 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:ecom_merce/Widgets/singleproduct.dart';
 class ListProduct extends StatelessWidget {
-  Widget _buildFeaturedProducts({String name, double price, String image}){
-    return Card(
-      child: Container(
-        height: 200,
-        width: 176,
-        color: Colors.transparent,
-        child: Column(
-          children: [
-            Container(
-              height: 160,
-              width: 150,
-              decoration: BoxDecoration(
-                image: DecorationImage(image: AssetImage("images/$image"),),
-              ),
-            ),
-            Text("\$ $price", style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: Colors.black54),),
-            Text(name, style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold, color: Colors.black),)
-          ],
-        ),
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -83,14 +61,14 @@ class ListProduct extends StatelessWidget {
                     childAspectRatio: 0.8,
                     crossAxisCount: 2,
                     children: [
-                    _buildFeaturedProducts(image: "mid.png", price: 30.0, name: "Black Elegance"),
-                    _buildFeaturedProducts(image: "galaxy.png", price: 120.0, name: "Galaxy Gear-2"),
-                    _buildFeaturedProducts(image: "mid.png", price: 30.0, name: "Black Elegance"),
-                    _buildFeaturedProducts(image: "galaxy.png", price: 120.0, name: "Galaxy Gear-2"),
-                    _buildFeaturedProducts(image: "mid.png", price: 30.0, name: "Black Elegance"),
-                    _buildFeaturedProducts(image: "galaxy.png", price: 120.0, name: "Galaxy Gear-2"),
-                      _buildFeaturedProducts(image: "mid.png", price: 30.0, name: "Black Elegance"),
-                      _buildFeaturedProducts(image: "galaxy.png", price: 120.0, name: "Galaxy Gear-2")
+                    SingleProduct(image: "mid.png", price: 30.0, name: "Black Elegance"),
+                    SingleProduct(image: "galaxy.png", price: 120.0, name: "Galaxy Gear-2"),
+                    SingleProduct(image: "mid.png", price: 30.0, name: "Black Elegance"),
+                    SingleProduct(image: "galaxy.png", price: 120.0, name: "Galaxy Gear-2"),
+                    SingleProduct(image: "mid.png", price: 30.0, name: "Black Elegance"),
+                    SingleProduct(image: "galaxy.png", price: 120.0, name: "Galaxy Gear-2"),
+                      SingleProduct(image: "mid.png", price: 30.0, name: "Black Elegance"),
+                      SingleProduct(image: "galaxy.png", price: 120.0, name: "Galaxy Gear-2")
                   ],),
                 )
               ],

@@ -1,28 +1,8 @@
+import 'package:ecom_merce/Widgets/singleproduct.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Homepage extends StatelessWidget {
-  Widget _buildFeaturedProducts({String name, double price, String image}){
-    return Card(
-      child: Container(
-        height: 200,
-        width: 176,
-        color: Colors.transparent,
-        child: Column(
-          children: [
-            Container(
-              height: 160,
-              width: 150,
-              decoration: BoxDecoration(
-                image: DecorationImage(image: AssetImage("images/$image"),),
-              ),
-            ),
-            Text("\$ $price", style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: Colors.black54),),
-            Text(name, style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold, color: Colors.black),)
-          ],
-        ),
-      ),
-    );
-  }
 
   Widget _buildCategoryProduct({String image, int color}){
     return CircleAvatar(
@@ -80,7 +60,7 @@ class Homepage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        height: 70,
+                        height: 50,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -90,7 +70,7 @@ class Homepage extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        height: 60,
+                        height: 70,
                         child: Row(
                           children: [
                             _buildCategoryProduct(image:"dress.png", color: 0xff3ddd),
@@ -103,6 +83,9 @@ class Homepage extends StatelessWidget {
                       ),
                     ],
                   ),
+                ),
+                SizedBox(
+                  height: 20,
                 ),
                 Column(
                   children: [
@@ -118,8 +101,8 @@ class Homepage extends StatelessWidget {
                         ),
                         Row(
                           children: [
-                            _buildFeaturedProducts(image: "mid.png", price: 30.0, name: "Black Elegance"),
-                            _buildFeaturedProducts(image: "galaxy.png", price: 120.0, name: "Galaxy Gear-2")
+                            SingleProduct(image: "mid.png", price: 30.0, name: "Black Elegance"),
+                            SingleProduct(image: "galaxy.png", price: 120.0, name: "Galaxy Gear-2")
                           ],
                         )
                       ],
@@ -150,8 +133,8 @@ class Homepage extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            _buildFeaturedProducts(image: "gpixel-4a.png", price: 400.0, name: "Google Pixel 4A"),
-                            _buildFeaturedProducts(image: "airdopes.png", price: 60.0, name: "Boat AirDopes 511")
+                            SingleProduct(image: "gpixel-4a.png", price: 400.0, name: "Google Pixel 4A"),
+                            SingleProduct(image: "airdopes.png", price: 60.0, name: "Boat AirDopes 511")
                           ],
                         )
                       ],
