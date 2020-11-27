@@ -1,7 +1,9 @@
+import 'package:ecom_merce/Screens/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:ecom_merce/Widgets/singleproduct.dart';
 class ListProduct extends StatelessWidget {
-
+  final String name;
+  ListProduct({this.name});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,7 +13,13 @@ class ListProduct extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           color: Colors.black,
-          onPressed: (){},
+          onPressed: (){
+            Navigator.of(context)
+                .pushReplacement(MaterialPageRoute(
+              builder: (ctx)=>Homepage()
+            ),
+            );
+          },
         ),
         actions: [
           IconButton(
@@ -41,7 +49,7 @@ class ListProduct extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "Featured Products",
+                            name,
                             style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
                           ),
 

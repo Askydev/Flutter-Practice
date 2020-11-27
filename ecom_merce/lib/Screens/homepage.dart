@@ -1,3 +1,4 @@
+import 'package:ecom_merce/Screens/listproduct.dart';
 import 'package:ecom_merce/Widgets/singleproduct.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -112,7 +113,17 @@ class Homepage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text("Featured Products", style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),),
-                            Text("View more", style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),),
+                            GestureDetector(
+                              onTap: (){
+                                Navigator.of(context)
+                                    .pushReplacement(MaterialPageRoute(
+                                  builder: (ctx)=>ListProduct(name: "Featured Products",
+                                  ),
+                                ),
+                                );
+                              },
+                              child: Text("View more", style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),),
+                            ),
                           ],
                         ),
                         Row(
@@ -135,7 +146,16 @@ class Homepage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text("New Arrivals", style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),),
-                          Text("View more", style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                          GestureDetector(
+                            onTap: (){
+                              Navigator.of(context)
+                                  .pushReplacement(MaterialPageRoute(
+                                builder: (ctx)=>ListProduct(name: "New Arrivals",
+                                ),
+                              ),
+                              );
+                            },
+                            child: Text("View more", style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),),
                           ),
                         ],
                       ),
