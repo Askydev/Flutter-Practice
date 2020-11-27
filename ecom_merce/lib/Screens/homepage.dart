@@ -62,12 +62,26 @@ class Homepage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
+                        height: 250,
+                        child: Carousel(
+                          // dotColor: Colors.white,
+                          autoplay: true,
+                          // dotSize: 5,
+                          showIndicator: false,
+                          images: [
+                            AssetImage("images/sandisk_ssd.png"),
+                            AssetImage("images/galaxy.png"),
+                            AssetImage("images/gpixel-4a.png"),
+                          ],
+                        ),
+                      ),
+                      Container(
                         height: 50,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text("Categories",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
-                            Text("See All",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
+                            Text("View more",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
                           ],
                         ),
                       ),
@@ -98,7 +112,7 @@ class Homepage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text("Featured Products", style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),),
-                            Text("See All", style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),),
+                            Text("View more", style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),),
                           ],
                         ),
                         Row(
@@ -121,7 +135,7 @@ class Homepage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text("New Arrivals", style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),),
-                          Text("See All", style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                          Text("View more", style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
                           ),
                         ],
                       ),
