@@ -76,7 +76,7 @@ class ListProduct extends StatelessWidget {
                     SingleProduct(image: "headphone.png", price: 30.0, name: "Rockerzz 710"),
                     SingleProduct(image: "pendrive.png", price: 7.0, name: "HP 32GB"),
                       SingleProduct(image: "iphoneX.png", price: 975.0, name: "Iphone X 128GB"),
-                      SingleProduct(image: "teddy.png", price: 11.0, name: "SomeOne Tedddy 6 ft'")
+                      SingleProduct(image: "teddy.png", price: 11.0, name: "SomeOne Teddy 6 ft'")
                   ],),
                 )
               ],
