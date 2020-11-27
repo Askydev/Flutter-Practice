@@ -112,12 +112,12 @@ class Homepage extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("Featured Products", style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),),
+                            Text("Featured", style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),),
                             GestureDetector(
                               onTap: (){
                                 Navigator.of(context)
                                     .pushReplacement(MaterialPageRoute(
-                                  builder: (ctx)=>ListProduct(name: "Featured Products",
+                                  builder: (ctx)=>ListProduct(name: "Featured",
                                   ),
                                 ),
                                 );
