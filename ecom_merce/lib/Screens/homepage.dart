@@ -35,6 +35,26 @@ class Homepage extends StatelessWidget {
                 currentAccountPicture: CircleAvatar(backgroundImage: AssetImage("images/profile.jpg"),),
                 accountEmail: Text("dx@gmail.com",style: TextStyle(color: Colors.black),)
             ),
+            ListTile(
+              onTap: (){},
+              leading: Icon(Icons.home),
+              title: Text("Home"),
+            ),
+            ListTile(
+              onTap: (){},
+              leading: Icon(Icons.shopping_cart),
+              title: Text("Cart"),
+            ),
+            ListTile(
+              onTap: (){},
+              leading: Icon(Icons.info),
+              title: Text("About"),
+            ),
+            ListTile(
+              onTap: (){},
+              leading: Icon(Icons.exit_to_app),
+              title: Text("Logout"),
+            ),
           ],
         ),
       ),
