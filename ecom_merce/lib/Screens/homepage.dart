@@ -26,7 +26,18 @@ class Homepage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _key,
-      drawer: Drawer(),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            UserAccountsDrawerHeader(
+                accountName: Text("Dev Sharma",style: TextStyle(color: Colors.black),),
+                decoration: BoxDecoration(color: Color(0xfff2f2f2),),
+                currentAccountPicture: CircleAvatar(backgroundImage: AssetImage("images/profile.jpg"),),
+                accountEmail: Text("dx@gmail.com",style: TextStyle(color: Colors.black),)
+            ),
+          ],
+        ),
+      ),
       appBar: AppBar(
         title: Text("HomePage"),
         centerTitle: true,
