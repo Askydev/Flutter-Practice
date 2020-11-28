@@ -48,7 +48,7 @@ class Homepage extends StatelessWidget {
             ListTile(
               onTap: (){},
               leading: Icon(Icons.info),
-              title: Text("About"),
+              title: Text("Contact Us"),
             ),
             ListTile(
               onTap: (){},
@@ -58,6 +58,7 @@ class Homepage extends StatelessWidget {
           ],
         ),
       ),
+      // Main---------------------------
       appBar: AppBar(
         title: Text("HomePage"),
         centerTitle: true,
