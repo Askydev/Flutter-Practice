@@ -26,13 +26,13 @@ class _HomepageState extends State<Homepage> {
     );
   }
 
-   bool homeColor=true;
+   bool homeColor=false;
 
-   bool cartColor=true;
+   bool cartColor=false;
 
-   bool aboutColor=true;
+   bool aboutColor=false;
 
-   bool contactUsColor=true;
+   bool contactUsColor=false;
 
   final GlobalKey<ScaffoldState> _key=GlobalKey<ScaffoldState>();
 
@@ -53,6 +53,7 @@ class _HomepageState extends State<Homepage> {
               selected: homeColor,
               onTap: (){
                 setState(() {
+                  homeColor=true;
                   contactUsColor=false;
                   cartColor=false;
                   aboutColor=false;
@@ -65,6 +66,7 @@ class _HomepageState extends State<Homepage> {
               selected: cartColor,
               onTap: (){
                 setState(() {
+                  cartColor=true;
                   homeColor=false;
                   contactUsColor=false;
                   aboutColor=false;
@@ -77,6 +79,7 @@ class _HomepageState extends State<Homepage> {
               selected: aboutColor,
               onTap: (){
                 setState(() {
+                  aboutColor=true;
                   homeColor=false;
                   contactUsColor=false;
                   cartColor=false;
@@ -89,6 +92,7 @@ class _HomepageState extends State<Homepage> {
               selected: contactUsColor,
               onTap: (){
                 setState(() {
+                  contactUsColor=true;
                   homeColor=false;
                   cartColor=false;
                   aboutColor=false;
