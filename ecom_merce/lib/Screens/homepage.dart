@@ -5,8 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 
 
-class Homepage extends StatelessWidget {
+class Homepage extends StatefulWidget {
 
+  @override
+  _HomepageState createState() => _HomepageState();
+}
+
+class _HomepageState extends State<Homepage> {
   Widget _buildCategoryProduct({String image, int color}){
     return CircleAvatar(
       maxRadius: 37,
@@ -21,7 +26,16 @@ class Homepage extends StatelessWidget {
     );
   }
 
+   bool homeColor=true;
+
+   bool cartColor=true;
+
+   bool aboutColor=true;
+
+   bool contactUsColor=true;
+
   final GlobalKey<ScaffoldState> _key=GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,23 +50,50 @@ class Homepage extends StatelessWidget {
                 accountEmail: Text("dx@gmail.com",style: TextStyle(color: Colors.black),)
             ),
             ListTile(
-              enabled: true,
-              onTap: (){},
+              selected: homeColor,
+              onTap: (){
+                setState(() {
+                  contactUsColor=false;
+                  cartColor=false;
+                  aboutColor=false;
+                });
+              },
               leading: Icon(Icons.home),
               title: Text("Home"),
             ),
             ListTile(
-              onTap: (){},
+              selected: cartColor,
+              onTap: (){
+                setState(() {
+                  homeColor=false;
+                  contactUsColor=false;
+                  aboutColor=false;
+                });
+              },
               leading: Icon(Icons.shopping_cart),
               title: Text("Cart"),
             ),
             ListTile(
-              onTap: (){},
+              selected: aboutColor,
+              onTap: (){
+                setState(() {
+                  homeColor=false;
+                  contactUsColor=false;
+                  cartColor=false;
+                });
+              },
               leading: Icon(Icons.info),
               title: Text("About"),
             ),
             ListTile(
-              onTap: (){},
+              selected: contactUsColor,
+              onTap: (){
+                setState(() {
+                  homeColor=false;
+                  cartColor=false;
+                  aboutColor=false;
+                });
+              },
               leading: Icon(Icons.phone),
               title: Text("Contact Us"),
             ),
