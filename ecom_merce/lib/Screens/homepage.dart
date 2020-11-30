@@ -32,10 +32,11 @@ class Homepage extends StatelessWidget {
             UserAccountsDrawerHeader(
                 accountName: Text("Dev Sharma",style: TextStyle(color: Colors.black),),
                 decoration: BoxDecoration(color: Color(0xfff2f2f2),),
-                currentAccountPicture: CircleAvatar(backgroundImage: AssetImage("images/profile.jpg"),),
+                currentAccountPicture: CircleAvatar(radius:20,backgroundImage: AssetImage("images/profile.jpg"),),
                 accountEmail: Text("dx@gmail.com",style: TextStyle(color: Colors.black),)
             ),
             ListTile(
+              enabled: true,
               onTap: (){},
               leading: Icon(Icons.home),
               title: Text("Home"),
@@ -48,6 +49,11 @@ class Homepage extends StatelessWidget {
             ListTile(
               onTap: (){},
               leading: Icon(Icons.info),
+              title: Text("About"),
+            ),
+            ListTile(
+              onTap: (){},
+              leading: Icon(Icons.phone),
               title: Text("Contact Us"),
             ),
             ListTile(
