@@ -6,6 +6,8 @@ class DetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.cyan,
+        elevation: 0.0,
+        leading: IconButton(icon: Icon(Icons.arrow_back,color: Colors.black,),onPressed: (){},),
       ),
     );
   }
