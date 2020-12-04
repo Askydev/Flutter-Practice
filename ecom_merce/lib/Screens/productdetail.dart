@@ -20,8 +20,31 @@ class DetailScreen extends StatelessWidget {
               Icons.notifications_none,
               color: Colors.black,
             ), onPressed: (){},
-          )
+          ),
         ],
+      ),
+      body: Container(
+        // margin: EdgeInsets.symmetric(horizontal: 10),
+        child: Column(
+          children: [
+            Center(
+              child: Container(
+                width: 350,
+                child: Card(
+                  color: Colors.amber,
+                  child: Container(
+                    height: 400,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                          fit: BoxFit.fill,
+                          image: AssetImage("images/galaxy.png"))
+                    ),
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
