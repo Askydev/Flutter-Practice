@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DetailScreen extends StatelessWidget {
@@ -28,23 +29,37 @@ class DetailScreen extends StatelessWidget {
           children: [
             Center(
               child: Container(
-                margin: EdgeInsets.all(20),
+                // margin: EdgeInsets.all(20),
                 child: Container(
                   width: 350,
                   child: Card(
-                    color: Colors.amberAccent,
                     child: Container(
-                      height: 400,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                            fit: BoxFit.fill,
-                            image: AssetImage("images/galaxy.png"))
+                      padding: EdgeInsets.all(10),
+                      child: Container(
+                        height: 350,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                              fit: BoxFit.fill,
+                              image: AssetImage("images/galaxy.png"))
+                        ),
                       ),
                     ),
                   ),
                 ),
               ),
-            )
+            ),
+            Container(
+              padding: EdgeInsets.all(20),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Text("Galaxy Watch"),
+                    ],
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
