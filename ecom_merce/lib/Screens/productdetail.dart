@@ -49,12 +49,12 @@ class DetailScreen extends StatelessWidget {
               ),
             ),
             Container(
-              padding: EdgeInsets.all(20),
+              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
               child: Column(
                 children: [
                   Row(
                     children: [
-                      Text("Galaxy Watch"),
+                      Text("Galaxy Watch",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
                     ],
                   ),
                 ],
