@@ -25,7 +25,7 @@ class DetailScreen extends StatelessWidget {
         ],
       ),
       body: Container(
-        child: Column(
+        child: ListView(
           children: [
             Center(
               child: Container(
@@ -53,20 +53,25 @@ class DetailScreen extends StatelessWidget {
               child: Column(
                 children: [
                   Container(
-                    height: 60,
-                    color: Colors.greenAccent,
+                    height: 100,
                     child: Row(
                       children: [
                         Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Galaxy Watch",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
-                            Text("\$ 240.0"),
+                            Text("Galaxy Watch",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25),),
+                            Text("\$ 240.0",style: TextStyle(fontWeight: FontWeight.bold,color:Colors.black54,fontSize: 15),),
+                            Text("Description:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
                           ],
                         ),
                       ],
                     ),
                   ),
+                  Container(
+                    height: 300,
+                    color: Colors.greenAccent,
+                  )
                 ],
               ),
             ),
