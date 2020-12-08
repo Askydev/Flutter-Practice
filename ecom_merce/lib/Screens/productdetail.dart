@@ -52,10 +52,20 @@ class DetailScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
               child: Column(
                 children: [
-                  Row(
-                    children: [
-                      Text("Galaxy Watch",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
-                    ],
+                  Container(
+                    height: 60,
+                    color: Colors.greenAccent,
+                    child: Row(
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("Galaxy Watch",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
+                            Text("\$ 240.0"),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
