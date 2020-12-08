@@ -51,6 +51,7 @@ class DetailScreen extends StatelessWidget {
             Container(
               padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
                     height: 100,
@@ -69,9 +70,44 @@ class DetailScreen extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    height: 300,
-                    color: Colors.greenAccent,
-                  )
+                    height: 100,
+                    // color: Colors.greenAccent,
+                    child: Wrap(
+                      children: [
+                        Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                          style: TextStyle(
+                            fontSize: 15
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Text("Size:",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Container(
+                    height: 100,
+                    color: Colors.cyan,
+                    child: Row(
+                      children: [
+
+                        Container(
+                          height: 60,
+                          width: 60,
+                          color: Colors.amberAccent,
+                          child: Center(
+                            child: Text("S",style: TextStyle(fontSize: 20),),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
