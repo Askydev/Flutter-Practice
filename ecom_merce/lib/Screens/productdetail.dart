@@ -2,6 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DetailScreen extends StatelessWidget {
+  Widget _buildProductPage({String name}){
+    return Container(
+      height: 60,
+      width: 60,
+      color: Colors.black38,
+      child: Center(
+        child: Text(name,style: TextStyle(fontSize: 20),),
+      ),
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,7 +80,7 @@ class DetailScreen extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    height: 100,
+                    height: 120,
                     // color: Colors.greenAccent,
                     child: Wrap(
                       children: [
@@ -92,19 +102,14 @@ class DetailScreen extends StatelessWidget {
                     height: 15,
                   ),
                   Container(
-                    width: 240,
-                    color: Colors.cyan,
+                    width: 280,
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-
-                        Container(
-                          height: 60,
-                          width: 60,
-                          color: Colors.amberAccent,
-                          child: Center(
-                            child: Text("S",style: TextStyle(fontSize: 20),),
-                          ),
-                        ),
+                        _buildProductPage(name: "S"),
+                        _buildProductPage(name: "M"),
+                        _buildProductPage(name: "L"),
+                        _buildProductPage(name: "XL")
                       ],
                     ),
                   ),
