@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DetailScreen extends StatelessWidget {
-  Widget _buildProductPage({String name}){
+  Widget _buildSize({String name}){
     return Container(
       height: 60,
       width: 60,
@@ -10,6 +10,14 @@ class DetailScreen extends StatelessWidget {
       child: Center(
         child: Text(name,style: TextStyle(fontSize: 20),),
       ),
+    );
+  }
+
+  Widget _buildColor({Color color}){
+    return Container(
+      height: 60,
+      width: 60,
+      color: color,
     );
   }
   @override
@@ -102,14 +110,37 @@ class DetailScreen extends StatelessWidget {
                     height: 15,
                   ),
                   Container(
-                    width: 280,
+                    width: 260,
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        _buildProductPage(name: "S"),
-                        _buildProductPage(name: "M"),
-                        _buildProductPage(name: "L"),
-                        _buildProductPage(name: "XL")
+                        _buildSize(name: "S"),
+                        _buildSize(name: "M"),
+                        _buildSize(name: "L"),
+                        _buildSize(name: "XL")
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text("Colour:",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Container(
+                    width: 260,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        _buildColor(color: Colors.black),
+                        _buildColor(color: Colors.brown[300]),
+                        _buildColor(color: Colors.brown[800])
                       ],
                     ),
                   ),
