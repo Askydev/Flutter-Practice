@@ -144,6 +144,16 @@ class DetailScreen extends StatelessWidget {
                       ],
                     ),
                   ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    "Quantity:",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20
+                    )
+                  ),
                 ],
               ),
             ),
