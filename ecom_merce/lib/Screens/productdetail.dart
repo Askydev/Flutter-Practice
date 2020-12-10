@@ -92,7 +92,7 @@ class DetailScreen extends StatelessWidget {
                     height: 15,
                   ),
                   Container(
-                    height: 100,
+                    width: 240,
                     color: Colors.cyan,
                     child: Row(
                       children: [
