@@ -164,6 +164,24 @@ class DetailScreen extends StatelessWidget {
                       color: Colors.blue[200],
                       borderRadius: BorderRadius.circular(20),
                     ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        GestureDetector(
+                          child: Icon(Icons.remove),
+                          onTap: (){},
+                        ),
+                        Text("1",
+                            style: TextStyle(
+                                fontSize: 18
+                            )
+                        ),
+                        GestureDetector(
+                          child: Icon(Icons.add),
+                          onTap: (){},
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
