@@ -154,6 +154,17 @@ class DetailScreen extends StatelessWidget {
                         fontSize: 20
                     )
                   ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Container(
+                    height: 30,
+                    width: 100,
+                    decoration: BoxDecoration(
+                      color: Colors.blue[200],
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                  ),
                 ],
               ),
             ),
