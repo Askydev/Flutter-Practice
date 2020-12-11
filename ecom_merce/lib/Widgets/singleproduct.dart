@@ -17,7 +17,7 @@ class SingleProduct extends StatelessWidget {
             Container(
               padding: EdgeInsets.symmetric(vertical: 5),
               child: Container(
-                height: 160,
+                height: 150,
                 width: 150,
                 decoration: BoxDecoration(
                   image: DecorationImage(fit:BoxFit.fill,image: AssetImage("images/$image"),),
