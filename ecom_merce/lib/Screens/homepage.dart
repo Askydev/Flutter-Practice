@@ -108,12 +108,28 @@ class _HomepageState extends State<Homepage> {
       ),
     );
   }
+  Widget _buildCarousel(){
+    return Container(
+      height: 250,
+      child: Carousel(
+        // dotColor: Colors.white,
+        autoplay: true,
+        // dotSize: 5,
+        showIndicator: false,
+        images: [
+          AssetImage("images/sandisk_ssd.png"),
+          AssetImage("images/galaxy.png"),
+          AssetImage("images/gpixel-4a.png"),
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _key,
-      drawer: _buildDrawer(), 
+      drawer: _buildDrawer(),
       // Main---------------------------
       appBar: AppBar(
         title: Text("HomePage"),
@@ -150,20 +166,7 @@ class _HomepageState extends State<Homepage> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Container(
-                        height: 250,
-                        child: Carousel(
-                          // dotColor: Colors.white,
-                          autoplay: true,
-                          // dotSize: 5,
-                          showIndicator: false,
-                          images: [
-                            AssetImage("images/sandisk_ssd.png"),
-                            AssetImage("images/galaxy.png"),
-                            AssetImage("images/gpixel-4a.png"),
-                          ],
-                        ),
-                      ),
+                      _buildCarousel(),
                       Container(
                         height: 50,
                         child: Row(
