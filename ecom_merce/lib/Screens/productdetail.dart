@@ -117,7 +117,7 @@ class _DetailScreenState extends State<DetailScreen> {
                     style: mystyle
                   ),
                   SizedBox(
-                    height: 15,
+                    height: 10,
                   ),
                   Container(
                     width: 260,
@@ -132,13 +132,13 @@ class _DetailScreenState extends State<DetailScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 15,
                   ),
                   Text("Colour:",
                     style: mystyle
                   ),
                   SizedBox(
-                    height: 15,
+                    height: 10,
                   ),
                   Container(
                     width: 260,
@@ -152,14 +152,14 @@ class _DetailScreenState extends State<DetailScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 15,
                   ),
                   Text(
                     "Quantity:",
                     style: mystyle
                   ),
                   SizedBox(
-                    height: 15,
+                    height: 10,
                   ),
                   Container(
                     height: 40,
@@ -175,8 +175,11 @@ class _DetailScreenState extends State<DetailScreen> {
                           child: Icon(Icons.remove),
                           onTap: (){
                             setState(() {
-                              count--;
-                            });
+                              if(count>1){
+                                count--;
+                              }
+                            }
+                            );
                           },
                         ),
                         Text(
@@ -192,6 +195,17 @@ class _DetailScreenState extends State<DetailScreen> {
                           },
                         ),
                       ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Container(
+                    height: 40,
+                    width: double.infinity,
+                    child: RaisedButton(
+                      color: Colors.amber,
+                      onPressed: (){},
                     ),
                   ),
                 ],
