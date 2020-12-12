@@ -155,6 +155,65 @@ class _HomepageState extends State<Homepage> {
     );
   }
 
+  Widget _buildFeatured(){
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text("Featured", style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),),
+            GestureDetector(
+              onTap: (){
+                Navigator.of(context)
+                    .pushReplacement(MaterialPageRoute(
+                  builder: (ctx)=>ListProduct(name: "Featured",
+                  ),
+                ),
+                );
+              },
+              child: Text("View more", style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),),
+            ),
+          ],
+        ),
+        Row(
+          children: [
+            GestureDetector(
+                onTap: (){
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (ctx)=>DetailScreen(
+                        image: "mid.png",
+                        price: 30.0,
+                        name: "Black Elegance"
+                    ),
+                  ),
+                  );
+                },
+                child: SingleProduct(
+                    image: "mid.png",
+                    price: 30.0,
+                    name: "Black Elegance")),
+            GestureDetector(
+                onTap: (){
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (ctx)=>DetailScreen(
+                        image: "galaxy.png",
+                        price: 120.0,
+                        name: "Galaxy Gear-2"
+                    ),
+                  ),
+                  );
+                },
+                child: SingleProduct(
+                    image: "galaxy.png",
+                    price: 120.0,
+                    name: "Galaxy Gear-2")
+            )
+          ],
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -204,67 +263,7 @@ class _HomepageState extends State<Homepage> {
                 SizedBox(
                   height: 20,
                 ),
-                Column(
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text("Featured", style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),),
-                            GestureDetector(
-                              onTap: (){
-                                Navigator.of(context)
-                                    .pushReplacement(MaterialPageRoute(
-                                  builder: (ctx)=>ListProduct(name: "Featured",
-                                  ),
-                                ),
-                                );
-                              },
-                              child: Text("View more", style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            GestureDetector(
-                                onTap: (){
-                                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                                    builder: (ctx)=>DetailScreen(
-                                        image: "mid.png",
-                                        price: 30.0,
-                                        name: "Black Elegance"
-                                    ),
-                                  ),
-                                  );
-                                },
-                                child: SingleProduct(
-                                    image: "mid.png",
-                                    price: 30.0,
-                                    name: "Black Elegance")),
-                            GestureDetector(
-                              onTap: (){
-                                Navigator.of(context).pushReplacement(MaterialPageRoute(
-                                  builder: (ctx)=>DetailScreen(
-                                      image: "galaxy.png",
-                                      price: 120.0,
-                                      name: "Galaxy Gear-2"
-                                  ),
-                                ),
-                                );
-                              },
-                                child: SingleProduct(
-                                    image: "galaxy.png",
-                                    price: 120.0,
-                                    name: "Galaxy Gear-2")
-                            )
-                          ],
-                        )
-                      ],
-                    ),
-                  ],
-                ),
+                _buildFeatured(),
 
                 Container(
                   height:50,
@@ -332,7 +331,7 @@ class _HomepageState extends State<Homepage> {
                                 ),
                             )
                           ],
-                        )
+                        ),
                       ],
                     ),
                   ],
