@@ -58,26 +58,27 @@ class _DetailScreenState extends State<DetailScreen> {
       body: Container(
         child: ListView(
           children: [
-            Center(
-              child: Container(
-                // margin: EdgeInsets.all(20),
-                child: Container(
-                  width: 350,
-                  child: Card(
+            Column(
+              children: [
+                Center(
                     child: Container(
-                      padding: EdgeInsets.all(10),
-                      child: Container(
-                        height: 350,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                              fit: BoxFit.fill,
-                              image: AssetImage("images/galaxy.png"))
+                      width: 350,
+                      child: Card(
+                        child: Container(
+                          padding: EdgeInsets.all(10),
+                          child: Container(
+                            height: 350,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  fit: BoxFit.fill,
+                                  image: AssetImage("images/galaxy.png"))
+                            ),
+                          ),
                         ),
                       ),
                     ),
-                  ),
                 ),
-              ),
+              ],
             ),
             Container(
               padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
