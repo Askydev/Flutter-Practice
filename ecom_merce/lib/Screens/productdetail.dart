@@ -1,7 +1,13 @@
+import 'package:ecom_merce/Screens/homepage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DetailScreen extends StatefulWidget {
+  final String image;
+  final String name;
+  final double price;
+
+  DetailScreen({this.name,this.price,this.image});
   @override
   _DetailScreenState createState() => _DetailScreenState();
 }
@@ -37,6 +43,8 @@ class _DetailScreenState extends State<DetailScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
+        title: Text(widget.name,style: mystyle,),
         backgroundColor: Colors.cyan,
         elevation: 0.0,
         leading: IconButton(
@@ -44,7 +52,9 @@ class _DetailScreenState extends State<DetailScreen> {
             Icons.arrow_back,
             color: Colors.black,
           ),
-          onPressed: (){},
+          onPressed: (){
+            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx)=>Homepage(),),);
+          },
         ),
         actions: [
           IconButton(
@@ -71,7 +81,8 @@ class _DetailScreenState extends State<DetailScreen> {
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                   fit: BoxFit.fill,
-                                  image: AssetImage("images/galaxy.png"))
+                                  image: AssetImage("images/${widget.image}")
+                              )
                             ),
                           ),
                         ),
@@ -93,8 +104,8 @@ class _DetailScreenState extends State<DetailScreen> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Galaxy Watch",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25),),
-                            Text("\$ 240.0",style: TextStyle(fontWeight: FontWeight.bold,color:Colors.black54,fontSize: 15),),
+                            Text(widget.name,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25),),
+                            Text("\$ ${widget.price.toString()}",style: TextStyle(fontWeight: FontWeight.bold,color:Colors.black54,fontSize: 15),),
                             Text("Description:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
                           ],
                         ),

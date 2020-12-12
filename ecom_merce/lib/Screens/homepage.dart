@@ -1,4 +1,5 @@
 import 'package:ecom_merce/Screens/listproduct.dart';
+import 'package:ecom_merce/Screens/productdetail.dart';
 import 'package:ecom_merce/Widgets/singleproduct.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -211,8 +212,37 @@ class _HomepageState extends State<Homepage> {
                         ),
                         Row(
                           children: [
-                            SingleProduct(image: "mid.png", price: 30.0, name: "Black Elegance"),
-                            SingleProduct(image: "galaxy.png", price: 120.0, name: "Galaxy Gear-2")
+                            GestureDetector(
+                                onTap: (){
+                                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                                    builder: (ctx)=>DetailScreen(
+                                        image: "mid.png",
+                                        price: 30.0,
+                                        name: "Black Elegance"
+                                    ),
+                                  ),
+                                  );
+                                },
+                                child: SingleProduct(
+                                    image: "mid.png",
+                                    price: 30.0,
+                                    name: "Black Elegance")),
+                            GestureDetector(
+                              onTap: (){
+                                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                                  builder: (ctx)=>DetailScreen(
+                                      image: "galaxy.png",
+                                      price: 120.0,
+                                      name: "Galaxy Gear-2"
+                                  ),
+                                ),
+                                );
+                              },
+                                child: SingleProduct(
+                                    image: "galaxy.png",
+                                    price: 120.0,
+                                    name: "Galaxy Gear-2")
+                            )
                           ],
                         )
                       ],
@@ -252,8 +282,39 @@ class _HomepageState extends State<Homepage> {
                       children: [
                         Row(
                           children: [
-                            SingleProduct(image: "gpixel-4a.png", price: 400.0, name: "Google Pixel 4A"),
-                            SingleProduct(image: "airdopes.png", price: 60.0, name: "Boat AirDopes 511")
+                            GestureDetector(
+                                onTap: (){
+                                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                                    builder: (ctx)=>DetailScreen(
+                                        image: "gpixel-4a.png",
+                                        price: 400.0,
+                                        name: "Google Pixel 4A"
+                                    ),
+                                  ),
+                                  );
+                                },
+                                child: SingleProduct(
+                                    image: "gpixel-4a.png",
+                                    price: 400.0,
+                                    name: "Google Pixel 4A")
+                            ),
+                            GestureDetector(
+                              onTap: (){
+                                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                                  builder: (ctx)=>DetailScreen(
+                                      image: "airdopes.png",
+                                      price: 60.0,
+                                      name: "Boat AirDopes 511"
+                                  ),
+                                ),
+                                );
+                              },
+                                child: SingleProduct(
+                                    image: "airdopes.png",
+                                    price: 60.0,
+                                    name: "Boat AirDopes 511"
+                                ),
+                            )
                           ],
                         )
                       ],
