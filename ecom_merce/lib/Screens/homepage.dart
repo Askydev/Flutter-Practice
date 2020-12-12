@@ -214,6 +214,84 @@ class _HomepageState extends State<Homepage> {
     );
   }
 
+  Widget _buildNewArrivals(){
+    return Column(
+      children: [
+        Container(
+          height:50,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("New Arrivals", style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),),
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.of(context)
+                          .pushReplacement(MaterialPageRoute(
+                        builder: (ctx)=>ListProduct(name: "New Arrivals",
+                        ),
+                      ),
+                      );
+                    },
+                    child: Text("View more", style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+        Row(
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    GestureDetector(
+                        onTap: (){
+                          Navigator.of(context).pushReplacement(MaterialPageRoute(
+                            builder: (ctx)=>DetailScreen(
+                                image: "gpixel-4a.png",
+                                price: 400.0,
+                                name: "Google Pixel 4A"
+                            ),
+                          ),
+                          );
+                        },
+                        child: SingleProduct(
+                            image: "gpixel-4a.png",
+                            price: 400.0,
+                            name: "Google Pixel 4A")
+                    ),
+                    GestureDetector(
+                      onTap: (){
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (ctx)=>DetailScreen(
+                              image: "airdopes.png",
+                              price: 60.0,
+                              name: "Boat AirDopes 511"
+                          ),
+                        ),
+                        );
+                      },
+                      child: SingleProduct(
+                          image: "airdopes.png",
+                          price: 60.0,
+                          name: "Boat AirDopes 511"
+                      ),
+                    )
+                  ],
+                ),
+              ],
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -264,78 +342,7 @@ class _HomepageState extends State<Homepage> {
                   height: 20,
                 ),
                 _buildFeatured(),
-
-                Container(
-                  height:50,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text("New Arrivals", style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),),
-                          GestureDetector(
-                            onTap: (){
-                              Navigator.of(context)
-                                  .pushReplacement(MaterialPageRoute(
-                                builder: (ctx)=>ListProduct(name: "New Arrivals",
-                                ),
-                              ),
-                              );
-                            },
-                            child: Text("View more", style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                Row(
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            GestureDetector(
-                                onTap: (){
-                                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                                    builder: (ctx)=>DetailScreen(
-                                        image: "gpixel-4a.png",
-                                        price: 400.0,
-                                        name: "Google Pixel 4A"
-                                    ),
-                                  ),
-                                  );
-                                },
-                                child: SingleProduct(
-                                    image: "gpixel-4a.png",
-                                    price: 400.0,
-                                    name: "Google Pixel 4A")
-                            ),
-                            GestureDetector(
-                              onTap: (){
-                                Navigator.of(context).pushReplacement(MaterialPageRoute(
-                                  builder: (ctx)=>DetailScreen(
-                                      image: "airdopes.png",
-                                      price: 60.0,
-                                      name: "Boat AirDopes 511"
-                                  ),
-                                ),
-                                );
-                              },
-                                child: SingleProduct(
-                                    image: "airdopes.png",
-                                    price: 60.0,
-                                    name: "Boat AirDopes 511"
-                                ),
-                            )
-                          ],
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
+                _buildNewArrivals(),
               ],
             ),
           ],
