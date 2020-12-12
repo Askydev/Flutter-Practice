@@ -8,6 +8,7 @@ class DetailScreen extends StatefulWidget {
   final double price;
 
   DetailScreen({this.name,this.price,this.image});
+
   @override
   _DetailScreenState createState() => _DetailScreenState();
 }

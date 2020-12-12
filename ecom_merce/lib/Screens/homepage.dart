@@ -320,8 +320,8 @@ class _HomepageState extends State<Homepage> {
         ],
       ),
       body: Container(
-        height: double.infinity,
-        width: double.infinity,
+        // height: double.infinity,
+        // width: double.infinity,
         margin: EdgeInsets.symmetric(horizontal: 20),
         child: ListView(
           children: [
@@ -334,7 +334,7 @@ class _HomepageState extends State<Homepage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       _buildCarousel(),
-                      _buildCategorie()
+                      _buildCategorie(),
                     ],
                   ),
                 ),
