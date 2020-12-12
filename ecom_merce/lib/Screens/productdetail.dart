@@ -1,7 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class DetailScreen extends StatelessWidget {
+class DetailScreen extends StatefulWidget {
+  @override
+  _DetailScreenState createState() => _DetailScreenState();
+}
+
+class _DetailScreenState extends State<DetailScreen> {
+  int count=1;
+
   Widget _buildSize({String name}){
     return Container(
       height: 60,
@@ -166,16 +173,23 @@ class DetailScreen extends StatelessWidget {
                       children: [
                         GestureDetector(
                           child: Icon(Icons.remove),
-                          onTap: (){},
+                          onTap: (){
+                            setState(() {
+                              count--;
+                            });
+                          },
                         ),
-                        Text("1",
+                        Text(
+                            count.toString(),
                             style: TextStyle(
                                 fontSize: 18
                             )
                         ),
                         GestureDetector(
                           child: Icon(Icons.add),
-                          onTap: (){},
+                          onTap: (){
+                            count++;
+                          },
                         ),
                       ],
                     ),
