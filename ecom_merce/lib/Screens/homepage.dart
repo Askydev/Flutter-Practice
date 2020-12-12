@@ -108,6 +108,7 @@ class _HomepageState extends State<Homepage> {
       ),
     );
   }
+
   Widget _buildCarousel(){
     return Container(
       height: 250,
@@ -122,6 +123,35 @@ class _HomepageState extends State<Homepage> {
           AssetImage("images/gpixel-4a.png"),
         ],
       ),
+    );
+  }
+
+  Widget _buildCategorie(){
+    return Column(
+      children: [
+        Container(
+          height: 50,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text("Categories",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
+              Text("View more",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
+            ],
+          ),
+        ),
+        Container(
+          height: 70,
+          child: Row(
+            children: [
+              _buildCategoryProduct(image:"dress.png", color: 0xff3ddd),
+              _buildCategoryProduct(image:"shirt.png", color: 0xff3cdd),
+              _buildCategoryProduct(image:"shoe.png", color: 0xff3ccd),
+              _buildCategoryProduct(image:"pants.png", color: 0xff3cdd),
+              _buildCategoryProduct(image:"galaxy.png", color: 0xff3cdd),
+            ],
+          ),
+        ),
+      ],
     );
   }
 
@@ -167,28 +197,7 @@ class _HomepageState extends State<Homepage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       _buildCarousel(),
-                      Container(
-                        height: 50,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text("Categories",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
-                            Text("View more",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        height: 70,
-                        child: Row(
-                          children: [
-                            _buildCategoryProduct(image:"dress.png", color: 0xff3ddd),
-                            _buildCategoryProduct(image:"shirt.png", color: 0xff3cdd),
-                            _buildCategoryProduct(image:"shoe.png", color: 0xff3ccd),
-                            _buildCategoryProduct(image:"pants.png", color: 0xff3cdd),
-                            _buildCategoryProduct(image:"galaxy.png", color: 0xff3cdd),
-                          ],
-                        ),
-                      ),
+                      _buildCategorie()
                     ],
                   ),
                 ),
