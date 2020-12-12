@@ -201,9 +201,15 @@ class _DetailScreenState extends State<DetailScreen> {
                     height: 15,
                   ),
                   Container(
-                    height: 40,
+                    height: 50,
                     width: double.infinity,
                     child: RaisedButton(
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                      child: Text(
+                        "Check Out",
+                      style: TextStyle(
+                        fontSize: 20
+                      ),),
                       color: Colors.amber,
                       onPressed: (){},
                     ),
