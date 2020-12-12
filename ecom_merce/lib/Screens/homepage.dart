@@ -302,7 +302,7 @@ class _HomepageState extends State<Homepage> {
         title: Text("HomePage"),
         centerTitle: true,
         elevation: 0.0,
-        backgroundColor: Colors.cyan,
+        backgroundColor: Colors.pink,
         leading: IconButton(
           icon: Icon(Icons.menu),
           onPressed:(){

@@ -232,7 +232,7 @@ class _DetailScreenState extends State<DetailScreen> {
       appBar: AppBar(
         centerTitle: true,
         title: Text(widget.name,style: mystyle,),
-        backgroundColor: Colors.cyan,
+        backgroundColor: Colors.pink,
         elevation: 0.0,
         leading: IconButton(
           icon: Icon(
