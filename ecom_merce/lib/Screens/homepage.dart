@@ -37,79 +37,83 @@ class _HomepageState extends State<Homepage> {
 
   final GlobalKey<ScaffoldState> _key=GlobalKey<ScaffoldState>();
 
+  Widget _buildDrawer(){
+    return Drawer(
+      child: ListView(
+        children: [
+          UserAccountsDrawerHeader(
+              accountName: Text("Dev Sharma",style: TextStyle(color: Colors.black),),
+              decoration: BoxDecoration(color: Color(0xfff2f2f2),),
+              currentAccountPicture: CircleAvatar(radius:20,backgroundImage: AssetImage("images/profile.jpg"),),
+              accountEmail: Text("dx@gmail.com",style: TextStyle(color: Colors.black),)
+          ),
+          ListTile(
+            selected: homeColor,
+            onTap: (){
+              setState(() {
+                homeColor=true;
+                contactUsColor=false;
+                cartColor=false;
+                aboutColor=false;
+              });
+            },
+            leading: Icon(Icons.home),
+            title: Text("Home"),
+          ),
+          ListTile(
+            selected: cartColor,
+            onTap: (){
+              setState(() {
+                cartColor=true;
+                homeColor=false;
+                contactUsColor=false;
+                aboutColor=false;
+              });
+            },
+            leading: Icon(Icons.shopping_cart),
+            title: Text("Cart"),
+          ),
+          ListTile(
+            selected: aboutColor,
+            onTap: (){
+              setState(() {
+                aboutColor=true;
+                homeColor=false;
+                contactUsColor=false;
+                cartColor=false;
+              });
+            },
+            leading: Icon(Icons.info),
+            title: Text("About"),
+          ),
+          ListTile(
+            selected: contactUsColor,
+            onTap: (){
+              setState(() {
+                contactUsColor=true;
+                homeColor=false;
+                cartColor=false;
+                aboutColor=false;
+              });
+            },
+            leading: Icon(Icons.phone),
+            title: Text("Contact Us"),
+          ),
+          ListTile(
+            onTap: (){},
+            leading: Icon(Icons.exit_to_app),
+            title: Text("Logout"),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _key,
-      drawer: Drawer(
-        child: ListView(
-          children: [
-            UserAccountsDrawerHeader(
-                accountName: Text("Dev Sharma",style: TextStyle(color: Colors.black),),
-                decoration: BoxDecoration(color: Color(0xfff2f2f2),),
-                currentAccountPicture: CircleAvatar(radius:20,backgroundImage: AssetImage("images/profile.jpg"),),
-                accountEmail: Text("dx@gmail.com",style: TextStyle(color: Colors.black),)
-            ),
-            ListTile(
-              selected: homeColor,
-              onTap: (){
-                setState(() {
-                  homeColor=true;
-                  contactUsColor=false;
-                  cartColor=false;
-                  aboutColor=false;
-                });
-              },
-              leading: Icon(Icons.home),
-              title: Text("Home"),
-            ),
-            ListTile(
-              selected: cartColor,
-              onTap: (){
-                setState(() {
-                  cartColor=true;
-                  homeColor=false;
-                  contactUsColor=false;
-                  aboutColor=false;
-                });
-              },
-              leading: Icon(Icons.shopping_cart),
-              title: Text("Cart"),
-            ),
-            ListTile(
-              selected: aboutColor,
-              onTap: (){
-                setState(() {
-                  aboutColor=true;
-                  homeColor=false;
-                  contactUsColor=false;
-                  cartColor=false;
-                });
-              },
-              leading: Icon(Icons.info),
-              title: Text("About"),
-            ),
-            ListTile(
-              selected: contactUsColor,
-              onTap: (){
-                setState(() {
-                  contactUsColor=true;
-                  homeColor=false;
-                  cartColor=false;
-                  aboutColor=false;
-                });
-              },
-              leading: Icon(Icons.phone),
-              title: Text("Contact Us"),
-            ),
-            ListTile(
-              onTap: (){},
-              leading: Icon(Icons.exit_to_app),
-              title: Text("Logout"),
-            ),
-          ],
-        ),
-      ),
+      drawer: _buildDrawer(), 
       // Main---------------------------
       appBar: AppBar(
         title: Text("HomePage"),
