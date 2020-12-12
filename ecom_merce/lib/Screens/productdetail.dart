@@ -20,6 +20,12 @@ class DetailScreen extends StatelessWidget {
       color: color,
     );
   }
+
+  final TextStyle mystyle = TextStyle(
+    fontWeight: FontWeight.bold,
+    fontSize: 20
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -101,10 +107,7 @@ class DetailScreen extends StatelessWidget {
                     ),
                   ),
                   Text("Size:",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20
-                    ),
+                    style: mystyle
                   ),
                   SizedBox(
                     height: 15,
@@ -125,10 +128,7 @@ class DetailScreen extends StatelessWidget {
                     height: 10,
                   ),
                   Text("Colour:",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20
-                    ),
+                    style: mystyle
                   ),
                   SizedBox(
                     height: 15,
@@ -149,10 +149,7 @@ class DetailScreen extends StatelessWidget {
                   ),
                   Text(
                     "Quantity:",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20
-                    )
+                    style: mystyle
                   ),
                   SizedBox(
                     height: 15,
