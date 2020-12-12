@@ -320,30 +320,26 @@ class _HomepageState extends State<Homepage> {
         ],
       ),
       body: Container(
-        // height: double.infinity,
-        // width: double.infinity,
+        height: double.infinity,
+        width: double.infinity,
         margin: EdgeInsets.symmetric(horizontal: 20),
         child: ListView(
           children: [
-            Column(
-              children: [
-                Container(
-                  width: double.infinity,
-                  // color: Colors.blue,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      _buildCarousel(),
-                      _buildCategorie(),
-                    ],
+            Container(
+              width: double.infinity,
+              // color: Colors.blue,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  _buildCarousel(),
+                  _buildCategorie(),
+                  SizedBox(
+                    height: 20,
                   ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                _buildFeatured(),
-                _buildNewArrivals(),
-              ],
+                  _buildFeatured(),
+                  _buildNewArrivals(),
+                ],
+              ),
             ),
           ],
         ),
