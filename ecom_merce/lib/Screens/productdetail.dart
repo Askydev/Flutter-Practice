@@ -207,9 +207,7 @@ class _DetailScreenState extends State<DetailScreen> {
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
                       child: Text(
                         "Check Out",
-                      style: TextStyle(
-                        fontSize: 20
-                      ),),
+                      style: mystyle),
                       color: Colors.amber,
                       onPressed: (){},
                     ),
