@@ -24,20 +24,20 @@ class Ecom extends StatelessWidget {
           if (snapshot.hasError) {
             return MaterialApp(
               debugShowCheckedModeBanner: false,
-              home: CartScreen(),
+              home: Homepage(),
             );
           }
       if (snapshot.connectionState == ConnectionState.done) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: CartScreen(),
+          home: Homepage(),
         );
       // ignore: missing_return, missing_return
       }
       // Otherwise, show something whilst waiting for initialization to complete
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            home: CartScreen(),
+            home: Homepage(),
             // ignore: missing_return, missing_return
           );
     });
