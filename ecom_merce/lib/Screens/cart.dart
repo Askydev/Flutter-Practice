@@ -106,11 +106,12 @@ class _CartScreenState extends State<CartScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: Container(
-        height: 40,
-        width: 100,
+        height: 50,
+        width: 200,
         child: RaisedButton(
-          color: Colors.pink,
+          color: Colors.amber,
           child: Text("Continue",style: TextStyle(color: Colors.black),),
+          onPressed: (){},
         ),
       ),
 
