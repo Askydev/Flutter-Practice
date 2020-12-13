@@ -105,6 +105,14 @@ class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: Container(
+        height: 40,
+        width: 100,
+        child: RaisedButton(
+          child: Text("Continue",style: TextStyle(color: Colors.black),),
+        ),
+      ),
+
       appBar: AppBar(
         centerTitle: true,
         title: Text("Cart",style: mystyle,),
@@ -127,15 +135,11 @@ class _CartScreenState extends State<CartScreen> {
         ],
       ),
 
-      
-
       body: ListView(
         children: [
           _buildCartProduct(),
           _buildCartProduct(),
           _buildCartProduct(),
-          _buildCartProduct(),
-          _buildCartProduct()
         ],
       ),
     );
