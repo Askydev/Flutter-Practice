@@ -144,6 +144,9 @@ class _CartScreenState extends State<CartScreen> {
           _buildCartProduct(),
           _buildCartProduct(),
           _buildCartProduct(),
+          _buildCartProduct(),
+          _buildCartProduct(),
+          _buildCartProduct(),
         ],
       ),
     );
