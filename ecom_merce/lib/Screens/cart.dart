@@ -5,7 +5,14 @@ final TextStyle mystyle = TextStyle(
     fontSize: 20
 );
 
-class CartScreen extends StatelessWidget {
+class CartScreen extends StatefulWidget {
+  @override
+  _CartScreenState createState() => _CartScreenState();
+}
+
+class _CartScreenState extends State<CartScreen> {
+  int count=1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,7 +61,9 @@ class CartScreen extends StatelessWidget {
                     height: 130,
                     width: 260,
                     child: ListTile(
+
                       title: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text("Samsung Galaxy Gear-S2"),
@@ -63,6 +72,39 @@ class CartScreen extends StatelessWidget {
                             style: TextStyle(
                                 color: Colors.black54,
                                 fontWeight: FontWeight.bold),
+                          ),
+                          Container(
+                            height: 30,
+                            width: 110,
+                            
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                GestureDetector(
+                                  child: Icon(Icons.remove),
+                                  onTap: (){
+                                    setState(() {
+                                      if(count>1){
+                                        count--;
+                                      }
+                                    }
+                                    );
+                                  },
+                                ),
+                                Text(
+                                    count.toString(),
+                                    style: TextStyle(
+                                        fontSize: 18
+                                    )
+                                ),
+                                GestureDetector(
+                                  child: Icon(Icons.add),
+                                  onTap: (){
+                                    count++;
+                                  },
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),
