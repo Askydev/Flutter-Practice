@@ -223,7 +223,13 @@ class _DetailScreenState extends State<DetailScreen> {
             style: mystyle),
         color: Colors.amber,
         onPressed: (){
-          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx)=>CartScreen(),),);
+          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx)=>CartScreen(
+            image: widget.image,
+            price: widget.price,
+            name: widget.name,
+          ),
+          ),);
+
         },
       ),
     );
