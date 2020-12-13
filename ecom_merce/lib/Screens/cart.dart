@@ -46,7 +46,6 @@ class _CartScreenState extends State<CartScreen> {
                   height: 130,
                   width: 260,
                   child: ListTile(
-
                     title: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -127,6 +126,9 @@ class _CartScreenState extends State<CartScreen> {
           ),
         ],
       ),
+
+      
+
       body: ListView(
         children: [
           _buildCartProduct(),
