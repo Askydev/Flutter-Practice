@@ -1,3 +1,4 @@
+import 'package:ecom_merce/Screens/cart.dart';
 import 'package:ecom_merce/Screens/homepage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -221,7 +222,9 @@ class _DetailScreenState extends State<DetailScreen> {
             "Check Out",
             style: mystyle),
         color: Colors.amber,
-        onPressed: (){},
+        onPressed: (){
+          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx)=>CartScreen(),),);
+        },
       ),
     );
   }
