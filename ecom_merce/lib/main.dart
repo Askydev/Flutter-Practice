@@ -1,3 +1,4 @@
+import 'package:ecom_merce/Screens/cart.dart';
 import 'package:ecom_merce/Screens/homepage.dart';
 import 'package:ecom_merce/Screens/productdetail.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -23,20 +24,20 @@ class Ecom extends StatelessWidget {
           if (snapshot.hasError) {
             return MaterialApp(
               debugShowCheckedModeBanner: false,
-              home: Homepage(),
+              home: CartScreen(),
             );
           }
       if (snapshot.connectionState == ConnectionState.done) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: Homepage(),
+          home: CartScreen(),
         );
       // ignore: missing_return, missing_return
       }
       // Otherwise, show something whilst waiting for initialization to complete
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            home: Homepage(),
+            home: CartScreen(),
             // ignore: missing_return, missing_return
           );
     });
