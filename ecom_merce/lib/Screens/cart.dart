@@ -109,6 +109,7 @@ class _CartScreenState extends State<CartScreen> {
         height: 40,
         width: 100,
         child: RaisedButton(
+          color: Colors.pink,
           child: Text("Continue",style: TextStyle(color: Colors.black),),
         ),
       ),
