@@ -1,3 +1,4 @@
+import 'package:ecom_merce/Screens/checkout.dart';
 import 'package:flutter/material.dart';
 
 
@@ -113,7 +114,9 @@ class _CartScreenState extends State<CartScreen> {
         child: RaisedButton(
           color: Colors.amber,
           child: Text("Continue",style: TextStyle(color: Colors.black,fontSize: 19),),
-          onPressed: (){},
+          onPressed: (){
+            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx)=>CheckOut(),),);
+          },
         ),
       ),
 

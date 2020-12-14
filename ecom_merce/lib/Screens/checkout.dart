@@ -10,8 +10,19 @@ final TextStyle mystyle2 = TextStyle(
     fontSize: 18,
 );
 
-class CheckOut extends StatelessWidget {
+class CheckOut extends StatefulWidget {
 
+  final double price;
+  final String name;
+  final String image;
+
+  CheckOut({this.name,this.price,this.image});
+
+  @override
+  _CheckOutState createState() => _CheckOutState();
+}
+
+class _CheckOutState extends State<CheckOut> {
   Widget _buildCartProduct(){
     return Container(
       height: 180,
@@ -29,7 +40,7 @@ class CheckOut extends StatelessWidget {
                   decoration: BoxDecoration(
                       image: DecorationImage(
                         fit: BoxFit.fill,
-                        image: AssetImage("images/galaxy.png"),
+                        image: AssetImage("images/${widget.image}"),
                       )
                   ),
                 ),
@@ -41,9 +52,9 @@ class CheckOut extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Samsung Galaxy Gear-S2"),
+                        Text(widget.name),
                         Text("Electronics"),
-                        Text("\$ 30.0",
+                        Text("\$ ${widget.price}",
                           style: TextStyle(
                               color: Colors.black54,
                               fontWeight: FontWeight.bold),
@@ -80,7 +91,6 @@ class CheckOut extends StatelessWidget {
       ],
     );
   }
-
 
   @override
   Widget build(BuildContext context) {
