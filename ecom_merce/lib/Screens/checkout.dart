@@ -45,35 +45,12 @@ class CheckOut extends StatelessWidget {
                         ),
                         Container(
                           height: 30,
-                          width: 110,
-                          color: Colors.black12,
+                          width: 100,
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text("Quantity: 1"),
-                              // GestureDetector(
-                              //   child: Icon(Icons.remove),
-                              //   onTap: (){
-                              //     setState(() {
-                              //       if(count>1){
-                              //         count--;
-                              //       }
-                              //     }
-                              //     );
-                              //   },
-                              // ),
-                              // Text(
-                              //     count.toString(),
-                              //     style: TextStyle(
-                              //         fontSize: 18
-                              //     )
-                              // ),
-                              // GestureDetector(
-                              //   child: Icon(Icons.add),
-                              //   onTap: (){
-                              //     count++;
-                              //   },
-                              // ),
+                              Text("Quantity:"),
+                              Text("1"),
                             ],
                           ),
                         ),
@@ -125,7 +102,7 @@ class CheckOut extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text("Checkout",style: TextStyle(fontSize: 28),),
+                  Text("CheckOut",style: TextStyle(fontSize: 28),),
                 ],
               ),
             ),
