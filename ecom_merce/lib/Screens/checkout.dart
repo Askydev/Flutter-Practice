@@ -133,20 +133,8 @@ class _CheckOutState extends State<CheckOut> {
         padding: EdgeInsets.symmetric(horizontal: 10,vertical: 15),
         child: ListView(
           children: [
-            Container(
-              height: 80,
-              width: double.infinity,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text("CheckOut",style: TextStyle(fontSize: 28),),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
+            _buildCartProduct(),
+            _buildCartProduct(),
             _buildCartProduct(),
             _buildCartProduct(),
 

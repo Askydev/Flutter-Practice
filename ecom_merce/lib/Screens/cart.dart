@@ -115,7 +115,13 @@ class _CartScreenState extends State<CartScreen> {
           color: Colors.amber,
           child: Text("Continue",style: TextStyle(color: Colors.black,fontSize: 19),),
           onPressed: (){
-            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx)=>CheckOut(),),);
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (ctx)=>CheckOut(
+                name: widget.name,
+                image: widget.image,
+                price: widget.price,
+            ),
+            ),);
           },
         ),
       ),
