@@ -6,6 +6,90 @@ final TextStyle mystyle = TextStyle(
 );
 
 class CheckOut extends StatelessWidget {
+
+  Widget _buildCartProduct(){
+    return Container(
+      height: 180,
+      width: double.infinity,
+      child: Card(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Container(
+                  height: 130,
+                  width: 130,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                        fit: BoxFit.fill,
+                        image: AssetImage("images/galaxy.png"),
+                      )
+                  ),
+                ),
+                Container(
+                  height: 130,
+                  width: 250,
+                  child: ListTile(
+                    title: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Samsung Galaxy Gear-S2"),
+                        Text("Electronics"),
+                        Text("\$ 30.0",
+                          style: TextStyle(
+                              color: Colors.black54,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        Container(
+                          height: 30,
+                          width: 110,
+                          color: Colors.black12,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Text("Quantity: 1"),
+                              // GestureDetector(
+                              //   child: Icon(Icons.remove),
+                              //   onTap: (){
+                              //     setState(() {
+                              //       if(count>1){
+                              //         count--;
+                              //       }
+                              //     }
+                              //     );
+                              //   },
+                              // ),
+                              // Text(
+                              //     count.toString(),
+                              //     style: TextStyle(
+                              //         fontSize: 18
+                              //     )
+                              // ),
+                              // GestureDetector(
+                              //   child: Icon(Icons.add),
+                              //   onTap: (){
+                              //     count++;
+                              //   },
+                              // ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,8 +121,16 @@ class CheckOut extends StatelessWidget {
             Container(
               height: 150,
               width: double.infinity,
-              color: Colors.black,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text("Checkout",style: TextStyle(fontSize: 28),),
+                ],
+              ),
             ),
+            _buildCartProduct(),
+            _buildCartProduct(),
           ],
         ),
       ),
