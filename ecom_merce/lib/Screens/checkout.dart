@@ -5,6 +5,11 @@ final TextStyle mystyle = TextStyle(
     fontSize: 20
 );
 
+final TextStyle mystyle2 = TextStyle(
+    fontWeight: FontWeight.bold,
+    fontSize: 18,
+);
+
 class CheckOut extends StatelessWidget {
 
   Widget _buildCartProduct(){
@@ -66,10 +71,32 @@ class CheckOut extends StatelessWidget {
     );
   }
 
+  Widget _buildTotalPrice({String startName, String endName}){
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(startName, style: mystyle2,),
+        Text(endName, style: mystyle2,),
+      ],
+    );
+  }
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: Container(
+        height: 65,
+        width: 200,
+        margin: EdgeInsets.symmetric(horizontal: 10),
+        padding: EdgeInsets.only(bottom: 10),
+        child: RaisedButton(
+          color: Colors.amber,
+          child: Text("Buy",style: TextStyle(color: Colors.black,fontSize: 19),),
+          onPressed: (){},
+        ),
+      ),
+
       appBar: AppBar(
         centerTitle: true,
         title: Text("Check Out",style: mystyle,),
@@ -91,12 +118,13 @@ class CheckOut extends StatelessWidget {
           ),
         ],
       ),
+
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 10,vertical: 15),
-        child: Column(
+        child: ListView(
           children: [
             Container(
-              height: 150,
+              height: 80,
               width: double.infinity,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -111,6 +139,31 @@ class CheckOut extends StatelessWidget {
             ),
             _buildCartProduct(),
             _buildCartProduct(),
+
+            Container(
+              height: 150,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  _buildTotalPrice(
+                    startName: "Your Price",
+                    endName: "\$ 60.0"
+                  ),
+                  _buildTotalPrice(
+                      startName: "Discount",
+                      endName: "3%"
+                  ),
+                  _buildTotalPrice(
+                      startName: "Shipment charges",
+                      endName: "\$ 3.75"
+                  ),
+                  _buildTotalPrice(
+                      startName: "Total Price",
+                      endName: "\$ 63.75"
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
