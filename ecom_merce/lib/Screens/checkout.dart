@@ -106,6 +106,9 @@ class CheckOut extends StatelessWidget {
                 ],
               ),
             ),
+            SizedBox(
+              height: 10,
+            ),
             _buildCartProduct(),
             _buildCartProduct(),
           ],
