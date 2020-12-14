@@ -1,4 +1,5 @@
 import 'package:ecom_merce/Screens/checkout.dart';
+import 'package:ecom_merce/Screens/homepage.dart';
 import 'package:flutter/material.dart';
 
 
@@ -136,7 +137,9 @@ class _CartScreenState extends State<CartScreen> {
             Icons.arrow_back,
             color: Colors.black,
           ),
-          onPressed: (){},
+          onPressed: (){
+            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx)=>Homepage(),),);
+          },
         ),
         actions: [
           IconButton(

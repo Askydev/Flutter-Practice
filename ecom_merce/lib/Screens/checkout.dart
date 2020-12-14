@@ -1,3 +1,4 @@
+import 'package:ecom_merce/Screens/cart.dart';
 import 'package:flutter/material.dart';
 
 final TextStyle mystyle = TextStyle(
@@ -117,7 +118,14 @@ class _CheckOutState extends State<CheckOut> {
             Icons.arrow_back,
             color: Colors.black,
           ),
-          onPressed: (){},
+          onPressed: (){
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (ctx)=>CartScreen(
+                name: widget.name,
+                image: widget.image,
+                price: widget.price,
+              ),),);
+          },
         ),
         actions: [
           IconButton(
@@ -135,9 +143,6 @@ class _CheckOutState extends State<CheckOut> {
           children: [
             _buildCartProduct(),
             _buildCartProduct(),
-            _buildCartProduct(),
-            _buildCartProduct(),
-
             Container(
               height: 150,
               child: Column(
