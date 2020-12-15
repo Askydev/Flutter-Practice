@@ -18,32 +18,37 @@ void main(){
 class Ecom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-        future: Firebase.initializeApp(),
-        builder: (context, snapshot) {
-      // Once complete, show your application
+    // return FutureBuilder(
+    //     future: Firebase.initializeApp(),
+    //     builder: (context, snapshot) {
+    //   // Once complete, show your application
+    //
+    //       if (snapshot.hasError) {
+    //         return MaterialApp(
+    //           debugShowCheckedModeBanner: false,
+    //           home: Homepage(),
+    //         );
+    //       }
+    //   if (snapshot.connectionState == ConnectionState.done) {
+    //     return MaterialApp(
+    //       debugShowCheckedModeBanner: false,
+    //       home: Homepage(),
+    //     );
+    //   // ignore: missing_return, missing_return
+    //   }
+    //   // Otherwise, show something whilst waiting for initialization to complete
+    //       return MaterialApp(
+    //         debugShowCheckedModeBanner: false,
+    //         home: Homepage(),
+    //         // ignore: missing_return, missing_return
+    //       );
+    // });
 
-          if (snapshot.hasError) {
-            return MaterialApp(
-              debugShowCheckedModeBanner: false,
-              home: WelCome(),
-            );
-          }
-      if (snapshot.connectionState == ConnectionState.done) {
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          home: WelCome(),
-        );
-      // ignore: missing_return, missing_return
-      }
-      // Otherwise, show something whilst waiting for initialization to complete
-          return MaterialApp(
-            debugShowCheckedModeBanner: false,
-            home: WelCome(),
-            // ignore: missing_return, missing_return
-          );
-    });
-
+    return MaterialApp(
+      theme: ThemeData(),
+      debugShowCheckedModeBanner: false,
+      home: Login(),
+    );
   }
 }
 
