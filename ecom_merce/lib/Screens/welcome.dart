@@ -58,7 +58,7 @@ class WelCome extends StatelessWidget {
                   GestureDetector(
                     child: Text("Login", style: TextStyle(color: Colors.green,fontSize: 17),),
                     onTap: (){
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx)=>Homepage(),),);
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx)=>Login(),),);
                     },
                   ),
                 ],
