@@ -1,3 +1,4 @@
+import 'package:ecom_merce/Screens/homepage.dart';
 import 'package:ecom_merce/Screens/login.dart';
 import 'package:ecom_merce/Screens/sign.dart';
 import 'package:flutter/cupertino.dart';
@@ -57,7 +58,7 @@ class WelCome extends StatelessWidget {
                   GestureDetector(
                     child: Text("Login", style: TextStyle(color: Colors.green,fontSize: 17),),
                     onTap: (){
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx)=>Login(),),);
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx)=>Homepage(),),);
                     },
                   ),
                 ],
