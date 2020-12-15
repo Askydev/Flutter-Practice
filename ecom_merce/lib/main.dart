@@ -18,37 +18,42 @@ void main(){
 class Ecom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // return FutureBuilder(
-    //     future: Firebase.initializeApp(),
-    //     builder: (context, snapshot) {
-    //   // Once complete, show your application
-    //
-    //       if (snapshot.hasError) {
-    //         return MaterialApp(
-    //           debugShowCheckedModeBanner: false,
-    //           home: Homepage(),
-    //         );
-    //       }
-    //   if (snapshot.connectionState == ConnectionState.done) {
-    //     return MaterialApp(
-    //       debugShowCheckedModeBanner: false,
-    //       home: Homepage(),
-    //     );
-    //   // ignore: missing_return, missing_return
-    //   }
-    //   // Otherwise, show something whilst waiting for initialization to complete
-    //       return MaterialApp(
-    //         debugShowCheckedModeBanner: false,
-    //         home: Homepage(),
-    //         // ignore: missing_return, missing_return
-    //       );
-    // });
+    return FutureBuilder(
+        future: Firebase.initializeApp(),
+        builder: (context, snapshot) {
+      // Once complete, show your application
 
-    return MaterialApp(
-      theme: ThemeData(),
-      debugShowCheckedModeBanner: false,
-      home: Homepage(),
-    );
+          if (snapshot.hasData) {
+            return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              home: Homepage(),
+            );
+          }
+          
+      // if (snapshot.connectionState == ConnectionState.done) {
+      //   return MaterialApp(
+      //     debugShowCheckedModeBanner: false,
+      //     home: Login(),
+      //   );
+      // // ignore: missing_return, missing_return
+      // }
+
+      // Otherwise, show something whilst waiting for initialization to complete
+          else
+            return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              home: Login(),
+              // ignore: missing_return, missing_return
+            );
+    });
+
+    // return MaterialApp(
+    //   theme: ThemeData(),
+    //   debugShowCheckedModeBanner: false,
+    //   home: StreamBuilder(stream: FirebaseAuth.instance.onAuthStateChanged,
+    //     builder: (ctx,snapShot){},
+    //   ),
+    // );
   }
 }
 
