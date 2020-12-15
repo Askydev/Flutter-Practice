@@ -51,7 +51,6 @@ class WelCome extends StatelessWidget {
                 height: 15,
               ),
               Row(
-                // crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text("Already have an account? \t\t",style: TextStyle(fontSize: 15),),
