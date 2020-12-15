@@ -1,3 +1,5 @@
+import 'package:ecom_merce/Screens/login.dart';
+import 'package:ecom_merce/Screens/sign.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -39,7 +41,9 @@ class WelCome extends StatelessWidget {
                     fontSize: 18
                   ),
                   ),
-                  onPressed: (){},
+                  onPressed: (){
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx)=>SignUp(),),);
+                  },
                 ),
               ),
               SizedBox(
@@ -53,7 +57,7 @@ class WelCome extends StatelessWidget {
                   GestureDetector(
                     child: Text("Login", style: TextStyle(color: Colors.green,fontSize: 17),),
                     onTap: (){
-                      
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx)=>Login(),),);
                     },
                   ),
                 ],
