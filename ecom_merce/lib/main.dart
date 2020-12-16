@@ -45,7 +45,8 @@ class Ecom extends StatelessWidget {
               home: Login(),
               // ignore: missing_return, missing_return
             );
-    });
+    }
+    );
 
     // return MaterialApp(
     //   theme: ThemeData(),
