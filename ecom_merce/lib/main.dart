@@ -12,49 +12,63 @@ import 'package:ecom_merce/Screens/listproduct.dart';
 
 
 void main(){
+  WidgetsFlutterBinding.ensureInitialized();
+  Firebase.initializeApp();
   runApp(Ecom());
 }
 
 class Ecom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-        future: Firebase.initializeApp(),
-        builder: (context, snapshot) {
-      // Once complete, show your application
 
-          if (snapshot.hasData) {
-            return MaterialApp(
-              debugShowCheckedModeBanner: false,
-              home: Homepage(),
-            );
-          }
-          
-      // if (snapshot.connectionState == ConnectionState.done) {
-      //   return MaterialApp(
-      //     debugShowCheckedModeBanner: false,
-      //     home: Login(),
-      //   );
-      // // ignore: missing_return, missing_return
-      // }
 
-      // Otherwise, show something whilst waiting for initialization to complete
-          else
+    // return FutureBuilder(
+    //     future: Firebase.initializeApp(),
+    //     builder: (context, snapshot) {
+    //   // Once complete, show your application
+    //
+    //       if (snapshot.hasData) {
+    //         return MaterialApp(
+    //           debugShowCheckedModeBanner: false,
+    //           home: Homepage(),
+    //         );
+    //       }
+    //
+    //   // if (snapshot.connectionState == ConnectionState.done) {
+    //   //   return MaterialApp(
+    //   //     debugShowCheckedModeBanner: false,
+    //   //     home: Login(),
+    //   //   );
+    //   // // ignore: missing_return, missing_return
+    //   // }
+    //
+    //   // Otherwise, show something whilst waiting for initialization to complete
+    //       else
+    //         return MaterialApp(
+    //           debugShowCheckedModeBanner: false,
+    //           home: Login(),
+    //           // ignore: missing_return, missing_return
+    //         );
+    // }
+    // );
+
+
             return MaterialApp(
+              theme: ThemeData(),
               debugShowCheckedModeBanner: false,
-              home: Login(),
-              // ignore: missing_return, missing_return
+              home: StreamBuilder(stream: FirebaseAuth.instance.authStateChanges(),
+                builder: (ctx,snapShot){
+                  if(snapShot.hasData){
+                    return Homepage();
+                  }
+                  else{
+                    return Login();
+                  }
+                },
+              ),
             );
     }
-    );
 
-    // return MaterialApp(
-    //   theme: ThemeData(),
-    //   debugShowCheckedModeBanner: false,
-    //   home: StreamBuilder(stream: FirebaseAuth.instance.onAuthStateChanged,
-    //     builder: (ctx,snapShot){},
-    //   ),
-    // );
   }
-}
+
 
