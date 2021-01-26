@@ -62,7 +62,7 @@ class Ecom extends StatelessWidget {
                     return Homepage();
                   }
                   else{
-                    return Login();
+                    return Homepage();
                   }
                 },
               ),
