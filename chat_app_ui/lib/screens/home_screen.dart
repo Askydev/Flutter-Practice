@@ -11,11 +11,13 @@ class HomePage extends StatelessWidget {
           color: Colors.white,
           onPressed: (){},
         ),
-        title: Text(
-          "Chats",
-          style: TextStyle(
-            fontSize: 28.0,
-            fontWeight: FontWeight.bold
+        title: Center(
+          child: Text(
+            "Chats",
+            style: TextStyle(
+              fontSize: 28.0,
+              fontWeight: FontWeight.bold
+            ),
           ),
         ),
         elevation: 0.0,
