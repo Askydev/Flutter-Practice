@@ -1,9 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecom_merce/Screens/listproduct.dart';
 import 'package:ecom_merce/Screens/productdetail.dart';
 import 'package:ecom_merce/Widgets/singleproduct.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
+import '../model/product.dart';
 
 
 class Homepage extends StatefulWidget {
@@ -11,6 +14,8 @@ class Homepage extends StatefulWidget {
   @override
   _HomepageState createState() => _HomepageState();
 }
+
+Product mendata;
 
 class _HomepageState extends State<Homepage> {
   Widget _buildCategoryProduct({String image, int color}){
@@ -100,7 +105,9 @@ class _HomepageState extends State<Homepage> {
             title: Text("Contact Us"),
           ),
           ListTile(
-            onTap: (){},
+            onTap: (){
+              FirebaseAuth.instance.signOut();
+            },
             leading: Icon(Icons.exit_to_app),
             title: Text("Logout"),
           ),
@@ -319,30 +326,42 @@ class _HomepageState extends State<Homepage> {
               onPressed: (){}),
         ],
       ),
-      body: Container(
-        height: double.infinity,
-        width: double.infinity,
-        margin: EdgeInsets.symmetric(horizontal: 20),
-        child: ListView(
-          children: [
-            Container(
-              width: double.infinity,
-              // color: Colors.blue,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  _buildCarousel(),
-                  _buildCategorie(),
-                  SizedBox(
-                    height: 20,
+      body: FutureBuilder(
+        future: FirebaseFirestore.instance.collection("products").doc("UeiPjRWOwTBa6dbSTwn8").collection('featureproduct').get(),
+        builder: (context, snapshot) {
+          if(snapshot.connectionState == ConnectionState.waiting){
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          mendata=Product(image: snapshot.data.documents[1]["image"],name: snapshot.data.documents[1]["name"],price: snapshot.data.documents[1]["price"]);
+          print(mendata.name);
+          return Container(
+            height: double.infinity,
+            width: double.infinity,
+            margin: EdgeInsets.symmetric(horizontal: 20),
+            child: ListView(
+              children: [
+                Container(
+                  width: double.infinity,
+                  // color: Colors.blue,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      _buildCarousel(),
+                      _buildCategorie(),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      _buildFeatured(),
+                      _buildNewArrivals(),
+                    ],
                   ),
-                  _buildFeatured(),
-                  _buildNewArrivals(),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        ),
+          );
+        }
       ),
     );
   }
