@@ -1,3 +1,4 @@
+import 'package:chat_app_ui/widgets/category_selector.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -28,6 +29,12 @@ class HomePage extends StatelessWidget {
             color: Colors.white,
             onPressed: (){},
           ),
+        ],
+      ),
+
+      body: Column(
+        children: [
+          CategorySelector(),
         ],
       ),
     );
