@@ -1,4 +1,5 @@
 import 'package:chat_app_ui/widgets/category_selector.dart';
+import 'package:chat_app_ui/widgets/favourite_cont.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -45,6 +46,12 @@ class HomePage extends StatelessWidget {
                   topLeft: Radius.circular(30.0),
                   topRight: Radius.circular(30.0),
                 ),
+              ),
+
+              child: Column(
+                children: [
+                  FavouriteContacts(),
+                ],
               ),
             ),
           )
