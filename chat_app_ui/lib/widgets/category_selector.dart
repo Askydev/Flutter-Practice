@@ -19,18 +19,25 @@ class _CategorySelectorState extends State<CategorySelector> {
         scrollDirection: Axis.horizontal,
           itemCount: categories.length,
           itemBuilder: (BuildContext context, int index){
-          return Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: 25,
-                vertical: 30,
-            ),
-            child: Text(
-                categories[index],
-              style: TextStyle(
-                fontSize: 24.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-                letterSpacing: 1.5,
+          return GestureDetector(
+            onTap: (){
+              setState(() {
+                SelectedIndex = index;
+              });
+            },
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: 25,
+                  vertical: 30,
+              ),
+              child: Text(
+                  categories[index],
+                style: TextStyle(
+                  color: index == SelectedIndex ? Colors.white : Colors.white60,
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 1.5,
+                ),
               ),
             ),
           );
