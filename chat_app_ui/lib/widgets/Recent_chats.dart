@@ -18,8 +18,45 @@ class RecentChats extends StatelessWidget {
               final Message chat = chats[index];
               return Row(
                 children: [
-                  Text(
-                      chat.sender.name,
+                  Row(
+                    children: [
+                      CircleAvatar(
+                        radius: 35.0,
+                        backgroundImage: AssetImage(chat.sender.imageUrl),
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width*0.65,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                                chat.sender.name,
+                              style: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 15.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                                chat.text,
+                              style: TextStyle(
+                                color: Colors.blueGrey,
+                                fontSize: 15.0,
+                                fontWeight: FontWeight.w600,
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Text(
+                        chat.time
+                      ),
+                    ],
                   ),
                 ],
               );
