@@ -1,3 +1,4 @@
+import 'package:chat_app_ui/widgets/Recent_chats.dart';
 import 'package:chat_app_ui/widgets/category_selector.dart';
 import 'package:chat_app_ui/widgets/favourite_cont.dart';
 import 'package:flutter/cupertino.dart';
@@ -51,6 +52,7 @@ class HomePage extends StatelessWidget {
               child: Column(
                 children: [
                   FavouriteContacts(),
+                  RecentChats(),
                 ],
               ),
             ),
