@@ -22,9 +22,17 @@ class RecentChats extends StatelessWidget {
               itemBuilder: (BuildContext context, int index){
                 final Message chat = chats[index];
                 return Container(
-                  margin: EdgeInsets.only(top: 5.0, bottom: 5.0),
-                  padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
+                  margin: EdgeInsets.only(top: 5.0, bottom: 5.0, right: 20.0),
+                  padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                  decoration: BoxDecoration(
+                    color: chat.unread ? Color(0xFFFFEFEE) : Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(20.0),
+                      bottomRight: Radius.circular(20.0),
+                    )
+                  ),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Row(
                         children: [
@@ -35,20 +43,21 @@ class RecentChats extends StatelessWidget {
                           SizedBox(
                             width: 10.0,
                           ),
-                          Container(
-                            width: MediaQuery.of(context).size.width*0.65,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                    chat.sender.name,
-                                  style: TextStyle(
-                                    color: Colors.grey,
-                                    fontSize: 15.0,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                  chat.sender.name,
+                                style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 15.0,
+                                  fontWeight: FontWeight.bold,
                                 ),
-                                Text(
+                              ),
+                              SizedBox(height: 5.0),
+                              Container(
+                                width: MediaQuery.of(context).size.width * 0.45,
+                                child: Text(
                                     chat.text,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
@@ -57,8 +66,8 @@ class RecentChats extends StatelessWidget {
                                   ),
                                   overflow: TextOverflow.ellipsis,
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
