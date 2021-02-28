@@ -72,10 +72,35 @@ class RecentChats extends StatelessWidget {
                         ],
                       ),
                       Column(
-                        children: [
+                        children: <Widget>[
                           Text(
-                            chat.time
+                            chat.time,
+                            style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
+                          SizedBox(height: 5.0),
+                          chat.unread
+                              ? Container(
+                            width: 40.0,
+                            height: 20.0,
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).primaryColor,
+                              borderRadius: BorderRadius.circular(30.0),
+                            ),
+                            alignment: Alignment.center,
+                            child: Text(
+                              'NEW',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 12.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          )
+                              : Text(''),
                         ],
                       ),
                     ],
