@@ -6,8 +6,7 @@ class CategorySelector extends StatefulWidget {
 }
 
 class _CategorySelectorState extends State<CategorySelector> {
-
-  int SelectedIndex=0;
+  int SelectedIndex = 0;
   final List categories = ['Messages', 'Online', 'Groups', 'Requests'];
 
   @override
@@ -16,33 +15,33 @@ class _CategorySelectorState extends State<CategorySelector> {
       height: 90.0,
       color: Theme.of(context).primaryColor,
       child: ListView.builder(
-        scrollDirection: Axis.horizontal,
+          scrollDirection: Axis.horizontal,
           itemCount: categories.length,
-          itemBuilder: (BuildContext context, int index){
-          return GestureDetector(
-            onTap: (){
-              setState(() {
-                SelectedIndex = index;
-              });
-            },
-            child: Padding(
-              padding: EdgeInsets.symmetric(
+          itemBuilder: (BuildContext context, int index) {
+            return GestureDetector(
+              onTap: () {
+                setState(() {
+                  SelectedIndex = index;
+                });
+              },
+              child: Padding(
+                padding: EdgeInsets.symmetric(
                   horizontal: 25,
                   vertical: 30,
-              ),
-              child: Text(
+                ),
+                child: Text(
                   categories[index],
-                style: TextStyle(
-                  color: index == SelectedIndex ? Colors.white : Colors.white60,
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 1.5,
+                  style: TextStyle(
+                    color:
+                        index == SelectedIndex ? Colors.white : Colors.white60,
+                    fontSize: 24.0,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 1.5,
+                  ),
                 ),
               ),
-            ),
-          );
-        }
-      ),
+            );
+          }),
     );
   }
 }

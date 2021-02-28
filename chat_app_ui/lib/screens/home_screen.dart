@@ -14,15 +14,12 @@ class HomePage extends StatelessWidget {
           icon: Icon(Icons.menu),
           iconSize: 30.0,
           color: Colors.white,
-          onPressed: (){},
+          onPressed: () {},
         ),
         title: Center(
           child: Text(
             "Chats",
-            style: TextStyle(
-              fontSize: 28.0,
-              fontWeight: FontWeight.bold
-            ),
+            style: TextStyle(fontSize: 28.0, fontWeight: FontWeight.bold),
           ),
         ),
         elevation: 0.0,
@@ -31,11 +28,10 @@ class HomePage extends StatelessWidget {
             icon: Icon(Icons.search),
             iconSize: 30.0,
             color: Colors.white,
-            onPressed: (){},
+            onPressed: () {},
           ),
         ],
       ),
-
       body: Column(
         children: [
           CategorySelector(),
@@ -48,7 +44,6 @@ class HomePage extends StatelessWidget {
                   topRight: Radius.circular(30.0),
                 ),
               ),
-
               child: Column(
                 children: [
                   FavouriteContacts(),
