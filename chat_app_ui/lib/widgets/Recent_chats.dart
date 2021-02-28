@@ -23,7 +23,7 @@ class RecentChats extends StatelessWidget {
                 final Message chat = chats[index];
                 return Container(
                   margin: EdgeInsets.only(top: 5.0, bottom: 5.0),
-                  // padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+                  padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
                   child: Row(
                     children: [
                       Row(
