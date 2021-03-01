@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Robo-con",
       theme: ThemeData(
-        primaryColor: Colors.red,
+        primaryColor: Colors.deepPurpleAccent,
         accentColor: Color(0xFFfEF9EB),
       ),
       home: HomePage(),

@@ -13,6 +13,36 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
+  _buildMessageGenerator() {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 8.0),
+      height: 70.0,
+      color: Colors.white,
+      child: Row(
+        children: [
+          IconButton(
+              icon: Icon(Icons.photo),
+              iconSize: 25.0,
+              color: Theme.of(context).primaryColor,
+              onPressed: () {}),
+          Expanded(
+              child: TextField(
+            textCapitalization: TextCapitalization.sentences,
+            onChanged: (value) {},
+            decoration: InputDecoration.collapsed(
+              hintText: "Type your Message...",
+            ),
+          )),
+          IconButton(
+              icon: Icon(Icons.send),
+              iconSize: 25.0,
+              color: Theme.of(context).primaryColor,
+              onPressed: () {})
+        ],
+      ),
+    );
+  }
+
   _buildMessage(Message message, bool isMe) {
     final Container msg = Container(
       margin: isMe
@@ -99,33 +129,37 @@ class _ChatScreenState extends State<ChatScreen> {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: Container(
-              decoration: BoxDecoration(
-                  color: Colors.white,
+      body: GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
+        child: Column(
+          children: [
+            Expanded(
+              child: Container(
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(30.0),
+                        topLeft: Radius.circular(30.0))),
+                child: ClipRRect(
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(30.0),
-                      topLeft: Radius.circular(30.0))),
-              child: ClipRRect(
-                borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(30.0),
-                    topLeft: Radius.circular(30.0)),
-                child: ListView.builder(
-                  reverse: true,
-                  padding: EdgeInsets.only(top: 15.0),
-                  itemCount: messages.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    final Message message = messages[index];
-                    final bool isMe = message.sender.id == currentUser.id;
-                    return _buildMessage(message, isMe);
-                  },
+                      topLeft: Radius.circular(30.0)),
+                  child: ListView.builder(
+                    reverse: true,
+                    padding: EdgeInsets.only(top: 15.0),
+                    itemCount: messages.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      final Message message = messages[index];
+                      final bool isMe = message.sender.id == currentUser.id;
+                      return _buildMessage(message, isMe);
+                    },
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+            _buildMessageGenerator(),
+          ],
+        ),
       ),
     );
   }
